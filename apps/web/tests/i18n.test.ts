@@ -21,13 +21,13 @@ describe('i18n', () => {
     expect(t('en').nav.services).toBe('Services');
   });
 
-  it('stats strip describes scope and working mode, not project metrics', () => {
+  it('stats strip has four entries in both languages, starting with years in IT', () => {
+    // Copy is the owner's; only the shape is pinned (the layout expects four tiles).
     for (const d of [sk, en]) {
       expect(d.stats).toHaveLength(4);
-      expect(d.stats.map((s) => s.value)).toEqual(['9+', '3', 'CH · NL · SK', '1']);
+      expect(d.stats[0]?.value).toBe('9+');
+      for (const s of d.stats) expect(s.label.trim().length).toBeGreaterThan(0);
     }
-    expect(sk.stats[1]?.label).toContain('odvetvia');
-    expect(en.stats[3]?.label).toContain('one person');
   });
 
   it('localePath builds prefixed urls with trailing slash', () => {

@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "typecheck": "astro check",
     "test": "astro sync && vitest run",
+    "e2e": "playwright test",
     "lint": "prettier --check .",
     "format": "prettier --write ."
   },
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
+    "@playwright/test": "^1.64.1",
     "gray-matter": "^4.0.3",
     "prettier": "^3.6.0",
     "prettier-plugin-astro": "^0.14.0",

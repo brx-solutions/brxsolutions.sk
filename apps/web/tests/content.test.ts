@@ -18,7 +18,7 @@ function findPlaceholders(...dirs: string[]): { file: string; line: number; text
         readFileSync(full, 'utf8')
           .split('\n')
           .forEach((text, i) => {
-            if (/(^|[\s'"(])\[[A-Za-zÀ-ž0-9][^\]\n]*\](?!\()/.test(text)) out.push({ file: full, line: i + 1, text: text.trim() });
+            if (/(^|[\s'"(])\[[A-Za-zÀ-ž0-9+][^\]\n]*\](?!\()/.test(text)) out.push({ file: full, line: i + 1, text: text.trim() });
           });
       }
     }

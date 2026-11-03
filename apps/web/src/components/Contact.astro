@@ -1,0 +1,66 @@
+---
+import Icon from './Icon.astro';
+import ContactForm from './ContactForm.astro';
+import { company } from '../config/company';
+import { t, anchors, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = t(locale);
+const link = 'inline-flex items-center gap-3 text-lg font-semibold';
+const social =
+  'inline-flex h-11 w-11 items-center justify-center rounded-[10px] border border-white/16 bg-bg';
+---
+
+<section id={anchors.contact} class="contact">
+  <div class="mx-auto flex max-w-page flex-wrap gap-10 px-5 py-16 md:gap-16 md:px-8 md:py-[104px]">
+    <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-6">
+      <p class="m-0 font-mono text-[13px] text-accent">08 / {d.nav.contact}</p>
+      <h2 class="m-0 font-display text-[clamp(40px,4.8vw,66px)] leading-none font-bold tracking-[-0.04em] whitespace-pre-line">{d.contact.title}</h2>
+      <p class="m-0 max-w-[460px] text-[17px] leading-[1.6] text-ink-2">{d.contact.sub}</p>
+      <div class="mt-2 flex flex-col gap-3.5">
+        <a href={`mailto:${company.email}`} class={link}>
+          <Icon name="mail" size={20} strokeWidth={1.8} />
+          {company.email}
+        </a>
+        {
+          company.phone && (
+            <a href={`tel:${company.phone.replace(/[^+\d]/g, '')}`} class={link}>
+              <Icon name="phone" size={20} strokeWidth={1.8} />
+              {company.phone}
+            </a>
+          )
+        }
+        <div class="mt-2 flex gap-3">
+          {
+            company.linkedin && (
+              <a href={company.linkedin} aria-label="LinkedIn" rel="me noopener" class={social}>
+                <Icon name="linkedin" size={18} strokeWidth={1.8} />
+              </a>
+            )
+          }
+          {
+            company.github && (
+              <a href={company.github} aria-label="GitHub" rel="me noopener" class={social}>
+                <Icon name="github" size={18} strokeWidth={1.8} />
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </div>
+    <ContactForm locale={locale} />
+  </div>
+</section>
+
+<script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+
+<style>
+  .contact {
+    background:
+      radial-gradient(circle at 20% 30%, rgba(20, 184, 166, 0.12), transparent 45%),
+      var(--color-surface);
+  }
+</style>

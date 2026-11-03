@@ -5,8 +5,10 @@ import { t, anchors, locales, localeHome, type Locale } from '../i18n';
 
 interface Props {
   locale: Locale;
+  /** Same page in every locale; defaults to the locale home pages. */
+  alternates?: Record<Locale, string>;
 }
-const { locale } = Astro.props;
+const { locale, alternates = { sk: localeHome('sk'), en: localeHome('en') } } = Astro.props;
 const d = t(locale);
 const links = [
   [anchors.services, d.nav.services],
@@ -58,7 +60,7 @@ const links = [
         {
           locales.map((l) => (
             <a
-              href={localeHome(l)}
+              href={alternates[l]}
               hreflang={l}
               lang={l}
               data-lang-switch
@@ -83,6 +85,7 @@ const links = [
   </nav>
 </header>
 
+<script src="../scripts/lang-switch.ts"></script>
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const nav = document.querySelector<HTMLElement>('[data-nav]');

@@ -1,0 +1,57 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { legal } from '../content/queries';
+import { company } from '../config/company';
+import { t, legalPath, localePath, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = t(locale);
+const entry = await legal(locale);
+const { Content } = await render(entry);
+const alternates = { sk: localePath('sk', legalPath.sk), en: localePath('en', legalPath.en) };
+---
+
+<Base locale={locale} title={`${entry.data.title} – ${company.name}`} description={entry.data.title} alternates={alternates}>
+  <div class="flex min-h-screen flex-col">
+    <Header locale={locale} alternates={alternates} />
+    <main class="mx-auto w-full max-w-[760px] flex-1 px-5 py-16 md:px-8 md:py-24">
+      <p class="m-0 font-mono text-[13px] text-accent">{d.legal.title}</p>
+      <h1 class="mt-3.5 mb-2 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em]">{entry.data.title}</h1>
+      <p class="m-0 text-sm text-muted-2">{entry.data.updated}</p>
+      <div class="legal mt-10 text-[16px] leading-[1.7] text-ink-2">
+        <Content />
+      </div>
+    </main>
+    <Footer locale={locale} />
+  </div>
+</Base>
+
+<style>
+  .legal :global(h2) {
+    margin: 2em 0 0.6em;
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+  .legal :global(p) {
+    margin: 0 0 1em;
+  }
+  .legal :global(ul) {
+    margin: 0 0 1em;
+    padding-left: 1.2em;
+  }
+  .legal :global(li) {
+    margin-bottom: 0.5em;
+  }
+  .legal :global(strong) {
+    color: var(--color-ink);
+  }
+</style>

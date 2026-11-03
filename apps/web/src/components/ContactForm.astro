@@ -1,0 +1,89 @@
+---
+import { t, legalPath, localePath, type Locale, type ProjectType } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = t(locale);
+const f = d.contact.form;
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? '/api/contact';
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+const types: ProjectType[] = ['ai', 'backend', 'audit', 'cv'];
+const field =
+  'h-12 rounded-[10px] border border-white/16 bg-surface px-3.5 text-[15px] text-ink outline-none focus:border-accent';
+---
+
+<form
+  method="post"
+  action={endpoint}
+  data-contact-form
+  data-lang={locale}
+  data-cv-placeholder={f.cvPlaceholder}
+  data-msg-placeholder={f.messagePlaceholder}
+  data-sending={f.sending}
+  data-success={f.success}
+  data-error={f.error}
+  class="flex min-w-0 flex-[1_1_440px] flex-col gap-[18px] rounded-card border border-white/12 bg-bg p-6 md:p-8"
+  novalidate={false}
+>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
+    <div class="flex flex-col gap-2">
+      <label for="f-name" class="text-[13px] font-semibold text-ink-2">{f.name}</label>
+      <input id="f-name" name="name" type="text" required maxlength="100" autocomplete="name" class={field} />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="f-email" class="text-[13px] font-semibold text-ink-2">{f.email}</label>
+      <input id="f-email" name="email" type="email" required maxlength="254" autocomplete="email" class={field} />
+    </div>
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="f-type" class="text-[13px] font-semibold text-ink-2">{f.type}</label>
+    <select id="f-type" name="type" class={field}>
+      {types.map((v) => <option value={v}>{f.options[v]}</option>)}
+    </select>
+  </div>
+  <div class="flex flex-col gap-2">
+    <label for="f-msg" class="text-[13px] font-semibold text-ink-2">{f.message}</label>
+    <textarea
+      id="f-msg"
+      name="message"
+      rows="5"
+      required
+      minlength="10"
+      maxlength="5000"
+      placeholder={f.messagePlaceholder}
+      class="resize-y rounded-[10px] border border-white/16 bg-surface p-3.5 text-[15px] text-ink outline-none focus:border-accent"
+    ></textarea>
+  </div>
+  <div class="hp" aria-hidden="true">
+    <label for="f-website">Website</label>
+    <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+  </div>
+  <input type="hidden" name="lang" value={locale} />
+  <div class="cf-turnstile" data-sitekey={siteKey} data-theme="dark" data-response-field-name="cf-turnstile-response"></div>
+  <button
+    type="submit"
+    class="h-[54px] cursor-pointer rounded-xl border-0 bg-accent text-[15px] font-bold text-bg disabled:cursor-wait disabled:opacity-70"
+  >
+    {f.submit}
+  </button>
+  <p data-form-status role="status" aria-live="polite" hidden class="m-0 text-sm font-medium"></p>
+  <p class="m-0 text-xs text-muted-2">
+    {f.note}
+    <a href={localePath(locale, legalPath[locale])} class="text-muted underline underline-offset-2 hover:text-accent-light">{f.noteLink}</a>
+  </p>
+</form>
+
+<style>
+  .hp {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+</style>
+
+<script src="../scripts/contact-form.ts"></script>
+<script src="../scripts/cv-request.ts"></script>

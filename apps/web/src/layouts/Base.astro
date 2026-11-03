@@ -45,6 +45,7 @@ const jsonLd = JSON.stringify({
     <meta name="theme-color" content="#0A0E14" />
     <script type="application/ld+json" is:inline set:html={jsonLd} />
     {umamiSrc && umamiId && <script defer src={umamiSrc} data-website-id={umamiId} is:inline />}
+    <slot name="head" />
   </head>
   <body>
     <slot />

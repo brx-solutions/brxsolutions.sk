@@ -31,6 +31,8 @@ describe('Contact', () => {
     expect(values).toEqual(['ai', 'backend', 'audit', 'cv']);
     expect(html).toContain('href="/ochrana-osobnych-udajov/"');
     expect(html).toContain('data-sitekey="1x00000000000000000000AA"');
+    // Widget stays invisible unless Cloudflare needs an interactive check.
+    expect(html).toMatch(/<div class="cf-turnstile"[^>]*data-appearance="interaction-only"/);
     expect(html).toContain('challenges.cloudflare.com/turnstile/v0/api.js');
   });
 });

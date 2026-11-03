@@ -31,10 +31,22 @@ PORT=3777 pnpm dev
 and point the site at it with `PUBLIC_CONTACT_ENDPOINT=http://localhost:3777/api/contact` in
 `apps/web/.env`. The console transport prints each message to stdout instead of sending it.
 
+## Before you push
+
+```bash
+pnpm verify          # same checks as CI: lint, typecheck, build, unit tests, Playwright
+```
+
+Green here means CI will be green and the server rolls the change out within ~10 minutes.
+If you changed the look of a page on purpose, refresh the screenshots first
+(`pnpm --filter web e2e --update-snapshots`, see "Visual baselines" below). `infra/smoke.sh`
+is only needed when you touch `infra/` or the Dockerfiles.
+
 ## Commands
 
 | Command                      | What it does                                                  |
 | ---------------------------- | ------------------------------------------------------------- |
+| `pnpm verify`                | everything CI runs, in order                                  |
 | `pnpm build`                 | builds every workspace                                        |
 | `pnpm test`                  | unit tests in every workspace (web tests need a prior build)  |
 | `pnpm --filter web e2e`      | Playwright: navigation, contact flow, visual and axe checks   |

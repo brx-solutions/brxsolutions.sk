@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const projectTypes = ['ai', 'backend', 'audit', 'cv'] as const;
+export const projectTypes = ['ai', 'backend', 'web', 'audit', 'cv'] as const;
 export const languages = ['sk', 'en'] as const;
 
 export const contactSchema = z.object({

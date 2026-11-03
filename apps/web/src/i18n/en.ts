@@ -230,6 +230,7 @@ export const en: Dictionary = {
       options: {
         ai: 'AI agents / RAG / LLM',
         backend: 'Back-end, API or data pipeline',
+        web: 'Website or web application',
         audit: 'Audit and modernisation of an existing system',
         cv: 'CV request',
       },

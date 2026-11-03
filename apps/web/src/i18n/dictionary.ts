@@ -1,5 +1,5 @@
 export type IconName = 'api' | 'data' | 'legacy' | 'web' | 'bot' | 'invoice' | 'home';
-export type ProjectType = 'ai' | 'backend' | 'audit' | 'cv';
+export type ProjectType = 'ai' | 'backend' | 'web' | 'audit' | 'cv';
 
 export interface Dictionary {
   meta: { title: string; description: string };

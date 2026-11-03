@@ -234,6 +234,7 @@ export const sk: Dictionary = {
       options: {
         ai: 'AI agenti / RAG / LLM',
         backend: 'Back-end, API alebo dátová pipeline',
+        web: 'Web alebo webová aplikácia',
         audit: 'Audit a modernizácia existujúceho systému',
         cv: 'Žiadosť o CV',
       },

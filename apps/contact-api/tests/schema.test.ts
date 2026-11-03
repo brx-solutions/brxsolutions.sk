@@ -36,6 +36,9 @@ describe('contactSchema', () => {
     const { website: _w, ...rest } = valid;
     expect(contactSchema.safeParse(rest).success).toBe(true);
   });
+  it('accepts the web project type', () => {
+    expect(contactSchema.safeParse({ ...valid, type: 'web' }).success).toBe(true);
+  });
   it('rejects an unknown project type and an invalid email', () => {
     expect(contactSchema.safeParse({ ...valid, type: 'other' }).success).toBe(false);
     expect(contactSchema.safeParse({ ...valid, email: 'a@b' }).success).toBe(false);

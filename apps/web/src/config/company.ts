@@ -1,0 +1,13 @@
+export const company = {
+  name: 'BRX Solutions s.r.o.',
+  founder: '[Meno Priezvisko]',
+  ico: '[00000000]',
+  dic: '[0000000000]',
+  icDph: '[SK0000000000]',
+  seat: 'Žilina, Slovensko',
+  register: '[Obchodný register OS Žilina, oddiel Sro, vložka 00000/L]',
+  email: 'peter.beraxa@gmail.com',
+  domain: 'brxsolutions.sk',
+  siteUrl: 'https://brxsolutions.sk',
+  since: 2017,
+} as const;

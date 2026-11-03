@@ -1,1 +1,56 @@
 @import 'tailwindcss';
+
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@theme {
+  --color-bg: #0a0e14;
+  --color-surface: #0f1620;
+  --color-surface-2: #141c27;
+  --color-ink: #f1f4f8;
+  --color-ink-2: #c3ccd8;
+  --color-muted: #aeb8c6;
+  --color-code: #d5dbe4;
+  --color-accent: #14b8a6;
+  --color-accent-light: #5eead4;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-2: rgba(255, 255, 255, 0.14);
+  --color-pink: #f0abfc;
+  --color-sky: #7dd3fc;
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-card: 20px;
+  --container-page: 1240px;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-accent-light);
+  }
+  input,
+  textarea,
+  select,
+  button {
+    font-family: var(--font-sans);
+  }
+}

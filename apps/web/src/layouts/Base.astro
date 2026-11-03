@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+import { company } from '../config/company';
+import { locales, type Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  alternates: Record<Locale, string>;
+}
+
+const { locale, title, description, alternates } = Astro.props;
+const canonical = company.siteUrl + alternates[locale];
+const umamiSrc = import.meta.env.PUBLIC_UMAMI_SRC;
+const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: company.name,
+  url: company.siteUrl,
+  email: company.email,
+  address: { '@type': 'PostalAddress', addressLocality: 'Žilina', addressCountry: 'SK' },
+});
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {locales.map((l) => <link rel="alternate" hreflang={l} href={company.siteUrl + alternates[l]} />)}
+    <link rel="alternate" hreflang="x-default" href={company.siteUrl + alternates.sk} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={company.siteUrl + '/og.png'} />
+    <meta property="og:locale" content={locale === 'sk' ? 'sk_SK' : 'en_GB'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0A0E14" />
+    <script type="application/ld+json" is:inline set:html={jsonLd} />
+    {umamiSrc && umamiId && <script defer src={umamiSrc} data-website-id={umamiId} is:inline />}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

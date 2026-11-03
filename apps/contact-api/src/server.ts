@@ -17,7 +17,7 @@ const app = createApp({
           from: config.contactFrom,
           to: config.contactTo,
         }),
-  limiter: createRateLimiter({ limit: 5, windowMs: 60 * 60 * 1000 }),
+  limiter: createRateLimiter({ limit: config.rateLimitPerHour, windowMs: 60 * 60 * 1000 }),
   config,
 });
 

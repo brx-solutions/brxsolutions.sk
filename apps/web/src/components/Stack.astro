@@ -23,9 +23,9 @@ const d = t(locale);
             <h3 class="m-0 font-display text-lg font-semibold tracking-[-0.01em]">{grp.name}</h3>
             <span class="font-mono text-xs text-accent-light">{grp.count}</span>
           </div>
-          <div class="h-1 overflow-hidden rounded-sm bg-white/8">
-            <div class="h-full rounded-sm bg-accent" style={`width: ${grp.bar}`} />
-          </div>
+          <svg class="h-1 w-full overflow-hidden rounded-sm bg-white/8" aria-hidden="true">
+            <rect width={grp.bar} height="100%" rx="2" class="fill-accent" />
+          </svg>
           <div class="flex flex-wrap gap-2">
             {grp.items.map((it) => (
               <span class="rounded-[10px] border border-white/10 bg-surface-2 px-3 py-2 text-[13.5px] font-medium text-ink">

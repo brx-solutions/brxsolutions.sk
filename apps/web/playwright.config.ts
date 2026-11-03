@@ -43,6 +43,7 @@ export default defineConfig({
         CONTACT_FROM: 'onboarding@resend.dev',
         TURNSTILE_SECRET_KEY: '1x0000000000000000000000000000000AA',
         MAIL_TRANSPORT: 'console',
+        RATE_LIMIT_PER_HOUR: '1000', // every spec run submits from one 'unknown' IP
       },
     },
   ],

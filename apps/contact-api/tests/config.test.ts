@@ -24,6 +24,17 @@ describe('loadConfig', () => {
       loadConfig({ ...base, MAIL_TRANSPORT: 'resend', RESEND_API_KEY: 'k', PORT: '4000' }).port,
     ).toBe(4000);
   });
+  it('reads the rate limit from RATE_LIMIT_PER_HOUR with a default of 5', () => {
+    expect(loadConfig({ ...base, MAIL_TRANSPORT: 'console' }).rateLimitPerHour).toBe(5);
+    expect(
+      loadConfig({ ...base, MAIL_TRANSPORT: 'console', RATE_LIMIT_PER_HOUR: '100' })
+        .rateLimitPerHour,
+    ).toBe(100);
+    expect(() =>
+      loadConfig({ ...base, MAIL_TRANSPORT: 'console', RATE_LIMIT_PER_HOUR: '0' }),
+    ).toThrow(/RATE_LIMIT_PER_HOUR/);
+  });
+
   it('rejects an unknown transport and a SITE_ORIGIN with a trailing slash', () => {
     expect(() => loadConfig({ ...base, MAIL_TRANSPORT: 'smtp' })).toThrow(/MAIL_TRANSPORT/);
     expect(() =>

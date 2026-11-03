@@ -6,6 +6,7 @@ export interface Config {
   turnstileSecret: string;
   resendApiKey?: string;
   mailTransport: 'resend' | 'console';
+  rateLimitPerHour: number;
 }
 
 export function loadConfig(env: NodeJS.ProcessEnv): Config {
@@ -35,6 +36,12 @@ export function loadConfig(env: NodeJS.ProcessEnv): Config {
   const port = Number(env['PORT'] ?? 3000);
   if (!Number.isInteger(port) || port <= 0)
     throw new Error(`PORT must be a positive integer, got "${env['PORT']}"`);
+  const rateLimitPerHour = Number(env['RATE_LIMIT_PER_HOUR'] ?? 5);
+  if (!Number.isInteger(rateLimitPerHour) || rateLimitPerHour <= 0) {
+    throw new Error(
+      `RATE_LIMIT_PER_HOUR must be a positive integer, got "${env['RATE_LIMIT_PER_HOUR']}"`,
+    );
+  }
   return {
     port,
     siteOrigin,
@@ -43,5 +50,6 @@ export function loadConfig(env: NodeJS.ProcessEnv): Config {
     turnstileSecret,
     resendApiKey,
     mailTransport: transport,
+    rateLimitPerHour,
   };
 }

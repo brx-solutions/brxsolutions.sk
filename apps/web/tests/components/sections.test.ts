@@ -27,7 +27,10 @@ describe('Stack', () => {
     const html = await renderToHtml(Stack, { locale: 'sk' });
     expect(html).toContain('id="stack"');
     expect(count(html, /<h3/g)).toBe(4);
-    for (const w of ['95%', '88%', '80%', '85%']) expect(html).toContain(`style="width: ${w}"`);
+    // Bar widths must not be inline styles: the production CSP has no 'unsafe-inline' for styles.
+    expect(html).not.toContain('style=');
+    for (const w of ['95%', '88%', '80%', '85%'])
+      expect(html).toMatch(new RegExp(`<rect[^>]*width="${w}"`));
     expect(html).toContain('8 nástrojov');
     expect(html).toContain('Cloudflare Zero Trust');
   });

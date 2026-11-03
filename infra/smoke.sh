@@ -12,4 +12,6 @@ grep -qi 'content-security-policy' <<<"$(curl -fsSI "localhost:$PORT/")" || fail
 code=$(curl -s -o /dev/null -w '%{http_code}' -X POST "localhost:$PORT/api/contact" -H 'Content-Type: text/plain' -d x)
 [ "$code" = "415" ] || fail "expected 415 from API via proxy, got $code"
 curl -fsS "localhost:$PORT/sitemap-index.xml" >/dev/null || fail "sitemap missing"
+# The CSP has no 'unsafe-inline' for styles, so inline style attributes would be silently dropped.
+grep -q 'style="' <<<"$(curl -fsS "localhost:$PORT/")$(curl -fsS "localhost:$PORT/en/")" && fail "inline style attribute found in HTML"
 echo "smoke: OK"

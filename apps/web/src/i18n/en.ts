@@ -33,9 +33,9 @@ export const en: Dictionary = {
   },
   stats: [
     { value: '9+', label: 'years in IT, since 2017' },
-    { value: '10×', label: 'faster slowest RAG query (3.5 min → 20 s)' },
-    { value: '5', label: 'services rewritten Python → TypeScript, 1:1 parity' },
-    { value: '90+', label: 'tests guarding LLM text quality' },
+    { value: '3', label: 'industries in production: payments, telecom networks, media' },
+    { value: 'CH · NL · SK', label: 'clients in three countries, fully remote' },
+    { value: '1', label: 'one person from design to operations: back-end, AI, infrastructure' },
   ],
   services: {
     title: 'What I can do for you',

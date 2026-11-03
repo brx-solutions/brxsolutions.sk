@@ -21,6 +21,15 @@ describe('i18n', () => {
     expect(t('en').nav.services).toBe('Services');
   });
 
+  it('stats strip describes scope and working mode, not project metrics', () => {
+    for (const d of [sk, en]) {
+      expect(d.stats).toHaveLength(4);
+      expect(d.stats.map((s) => s.value)).toEqual(['9+', '3', 'CH · NL · SK', '1']);
+    }
+    expect(sk.stats[1]?.label).toContain('odvetvia');
+    expect(en.stats[3]?.label).toContain('one person');
+  });
+
   it('localePath builds prefixed urls with trailing slash', () => {
     expect(localePath('sk', 'ochrana-osobnych-udajov')).toBe('/ochrana-osobnych-udajov/');
     expect(localePath('en', 'privacy')).toBe('/en/privacy/');

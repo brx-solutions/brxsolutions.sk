@@ -24,7 +24,7 @@ export const sk: Dictionary = {
     sub: 'Python a TypeScript inžinier s 9 rokmi v IT. Staviam RAG systémy, LLM pipeline a back-end pre firmy, ktoré potrebujú jedného človeka od návrhu po prevádzku.',
     cta1: 'Prebrať projekt',
     cta2: 'Pozrieť case studies',
-    availability: 'Voľná kapacita od [mesiac rok]',
+    availability: 'Voľná kapacita od 12/2026',
     code: {
       focus: ['backend', 'GenAI / RAG', 'data'],
       stack: ['Python', 'TypeScript', 'GCP'],
@@ -33,9 +33,9 @@ export const sk: Dictionary = {
   },
   stats: [
     { value: '9+', label: 'rokov v IT, od 2017' },
-    { value: '10×', label: 'rýchlejší najpomalší RAG dotaz (3,5 min → 20 s)' },
-    { value: '5', label: 'služieb prepísaných Python → TypeScript s 1:1 paritou' },
-    { value: '90+', label: 'testov strážiacich kvalitu LLM textov' },
+    { value: '3', label: 'odvetvia v produkcii: platby, telekom siete, médiá' },
+    { value: 'CH · NL · SK', label: 'klienti v troch krajinách, plne remote' },
+    { value: '1', label: 'človek od návrhu po prevádzku: back-end, AI, infraštruktúra' },
   ],
   services: {
     title: 'Čo pre vás viem spraviť',

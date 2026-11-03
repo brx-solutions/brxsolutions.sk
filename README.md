@@ -87,8 +87,9 @@ docker compose -f docker-compose.yml -f compose.local.yml down
 ```
 
 Production images are tagged with the git sha (`ghcr.io/brx-solutions/web:<sha>`,
-`ghcr.io/brx-solutions/contact-api:<sha>`), never `latest`. Tunnel, analytics and the
-deploy job are described in the infrastructure plan.
+`ghcr.io/brx-solutions/contact-api:<sha>`), never `latest`. CI publishes them on every push
+to `main`; the server pulls the newest green sha every 5 minutes. Server setup, rollback and
+backups: `infra/server/README.md`.
 
 ## Launch checklist
 

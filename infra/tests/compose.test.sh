@@ -22,5 +22,6 @@ check "images use brx-solutions org" "grep -q 'ghcr.io/brx-solutions/web:' <<<\"
 check "umami telemetry off" "grep -q 'DISABLE_TELEMETRY: \"1\"' <<<\"\$prod_cfg\""
 check "umami reads CF-Connecting-IP" "grep -q 'CLIENT_IP_HEADER: CF-Connecting-IP' <<<\"\$prod_cfg\""
 check "every prod service has a memory limit" "docker compose --env-file .env.example -f docker-compose.yml -f compose.prod.yml config --format json 2>/dev/null | python3 -c 'import json,sys;s=json.load(sys.stdin)[\"services\"];missing=[k for k,v in s.items() if not v.get(\"mem_limit\")];print(\"missing:\",missing) if missing else None;sys.exit(1 if missing else 0)'"
+check "web does not wait for contact-api health (avoids ~30s downtime per deploy)" "docker compose --env-file .env.example -f docker-compose.yml -f compose.prod.yml config --format json 2>/dev/null | python3 -c 'import json,sys;d=json.load(sys.stdin)[\"services\"][\"web\"][\"depends_on\"][\"contact-api\"][\"condition\"];sys.exit(0 if d==\"service_started\" else 1)'"
 check "db volume is named" "grep -qE '^  umami-db-data:' <<<\"\$prod_cfg\""
 exit $fail

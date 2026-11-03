@@ -15,8 +15,10 @@ services:
       STATS_ORIGIN: ${STATS_ORIGIN:-}
     mem_limit: 128m
     depends_on:
+      # service_started, not service_healthy: Caddy serves the static site regardless of
+      # the API; waiting for the API healthcheck kept the site down ~30 s on every deploy.
       contact-api:
-        condition: service_healthy
+        condition: service_started
     restart: unless-stopped
 
   contact-api:

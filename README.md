@@ -86,8 +86,8 @@ cp .env.example .env        # local defaults: console mail, Turnstile test secre
 docker compose down
 ```
 
-Production images are tagged with the git sha (`ghcr.io/brxsolutions/web:<sha>`,
-`ghcr.io/brxsolutions/contact-api:<sha>`), never `latest`. Tunnel, analytics and the
+Production images are tagged with the git sha (`ghcr.io/brx-solutions/web:<sha>`,
+`ghcr.io/brx-solutions/contact-api:<sha>`), never `latest`. Tunnel, analytics and the
 deploy job are described in the infrastructure plan.
 
 ## Launch checklist

@@ -2,7 +2,7 @@
 # The production plan adds cloudflared, umami and umami-db and drops the published port.
 services:
   web:
-    image: ghcr.io/brxsolutions/web:${IMAGE_TAG:-dev}
+    image: ghcr.io/brx-solutions/web:${IMAGE_TAG:-dev}
     build:
       context: ..
       dockerfile: apps/web/Dockerfile
@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
 
   contact-api:
-    image: ghcr.io/brxsolutions/contact-api:${IMAGE_TAG:-dev}
+    image: ghcr.io/brx-solutions/contact-api:${IMAGE_TAG:-dev}
     build:
       context: ..
       dockerfile: apps/contact-api/Dockerfile

@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "typecheck": "astro check",
-    "test": "vitest run",
+    "test": "astro sync && vitest run",
     "lint": "prettier --check .",
     "format": "prettier --write ."
   },

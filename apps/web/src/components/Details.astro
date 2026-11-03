@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  moreLabel: string;
+  lessLabel: string;
+  class?: string;
+}
+const { moreLabel, lessLabel, class: className } = Astro.props;
+---
+
+<details class:list={['details group', className]}>
+  <summary
+    class="inline-flex h-10 cursor-pointer list-none items-center gap-2 rounded-[10px] border border-white/16 px-3.5 text-[13px] font-semibold text-ink select-none [&::-webkit-details-marker]:hidden"
+  >
+    <span class="group-open:hidden">{moreLabel}</span>
+    <span class="hidden group-open:inline">{lessLabel}</span>
+    <Icon name="chevron" size={14} strokeWidth={2.2} class="transition-transform group-open:rotate-180" />
+  </summary>
+  <div class="pt-4">
+    <slot />
+  </div>
+</details>

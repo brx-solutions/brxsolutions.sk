@@ -55,3 +55,15 @@
     font-family: var(--font-sans);
   }
 }
+
+@layer components {
+  .prose-body > :first-child {
+    margin-top: 0;
+  }
+  .prose-body > :last-child {
+    margin-bottom: 0;
+  }
+  .prose-body p {
+    margin: 0 0 0.75em;
+  }
+}

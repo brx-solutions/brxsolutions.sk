@@ -1,0 +1,48 @@
+---
+import Section from './Section.astro';
+import { t, anchors, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = t(locale);
+---
+
+<Section id={anchors.stack} no="02" eyebrow={d.nav.stack} title={d.stack.title} tone="surface">
+  <p
+    slot="aside"
+    class="fullstack m-0 max-w-[560px] flex-[1_1_420px] rounded-[14px] border border-accent/30 px-[22px] py-5 text-[15.5px] leading-[1.65] whitespace-pre-line text-[#E3E8EF]"
+  >
+    {d.stack.fullstack}
+  </p>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-4">
+    {
+      d.stack.groups.map((grp) => (
+        <div class="flex flex-col gap-4 rounded-card border border-white/10 bg-bg p-[26px]">
+          <div class="flex items-center justify-between">
+            <h3 class="m-0 font-display text-lg font-semibold tracking-[-0.01em]">{grp.name}</h3>
+            <span class="font-mono text-xs text-accent-light">{grp.count}</span>
+          </div>
+          <div class="h-1 overflow-hidden rounded-sm bg-white/8">
+            <div class="h-full rounded-sm bg-accent" style={`width: ${grp.bar}`} />
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {grp.items.map((it) => (
+              <span class="rounded-[10px] border border-white/10 bg-surface-2 px-3 py-2 text-[13.5px] font-medium text-ink">{it}</span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <p class="m-0 text-[13px] text-muted-2">{d.stack.note}</p>
+</Section>
+
+<style>
+  .fullstack {
+    background:
+      linear-gradient(180deg, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.02)),
+      var(--color-bg);
+  }
+</style>

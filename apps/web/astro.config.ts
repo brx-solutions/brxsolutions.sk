@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://brxsolutions.sk',
   output: 'static',
+  // One cache dir for build, sync and vitest so tests see the content data store.
+  cacheDir: './.astro/',
   trailingSlash: 'always',
   compressHTML: true,
   build: { inlineStylesheets: 'never' },

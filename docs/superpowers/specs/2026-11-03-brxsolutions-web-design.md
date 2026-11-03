@@ -1,7 +1,7 @@
 # brxsolutions.sk — company website design
 
 Date: 2026-11-03
-Status: draft, awaiting owner approval
+Status: approved by owner 2026-11-03
 Owner: Peter Beraxa (BRX Solutions s.r.o.)
 
 ## 1. Intent
@@ -68,8 +68,8 @@ Anti-goals (it is a failure even if it works)
   be public.
 - Owner's stack preferences: TypeScript, Astro (agreed), Tailwind (in his
   listed stack), Vitest, Playwright, Docker, Cloudflare Zero Trust.
-- Local tooling observed: Node 20.19, Docker 28, git 2.50. Builder may require
-  Node 22 (LTS); document it in the README and `.nvmrc`.
+- Local tooling observed: Node 20.19 via nvm, Docker 28, git 2.50. Target Node
+  22 LTS; pin in `.nvmrc` and `engines`, document `nvm install` in README.
 - Mockup placeholders remain placeholders in content files until the owner
   fills them: `[Meno Priezvisko]`, `[mesiac rok]`, `[2025]`, `IČO [00000000]`.
 
@@ -136,12 +136,21 @@ Enforced by a Vitest test that fails the build.
 Placeholder rule: a test warns (does not fail) on any `[...]` placeholder
 left in content, listing file and line, so the owner sees what is unfilled.
 
+The hero "code window" (`const engineer = {...}`) is content too: its values
+(name, company, focus, stack, since, remote) live in the dictionary, the
+syntax colouring in the component.
+
 ### 5.3 Legal content — `apps/web/src/content/legal/{sk,en}/privacy.md`
 
 Privacy policy as markdown, rendered on its own page. Company identification
 (name, IČO, DIČ, IČ DPH, registered seat, commercial register entry) lives in
 `apps/web/src/config/company.ts` and is rendered in the footer and the privacy
 page. Placeholder values until the owner fills them.
+
+The builder drafts the privacy policy in both languages (controller identity,
+purpose: replying to enquiries; data: name, email, message; retention; Resend
+and Umami as processors; rights under GDPR; contact). The owner reviews it
+before launch; it is a draft, not legal advice.
 
 ## 6. Routing and i18n (decided)
 
@@ -180,10 +189,9 @@ page. Placeholder values until the owner fills them.
   without JS it simply scrolls to the form.
 - Accent colour fixed to the mockup default `#14B8A6` (light variant
   `#5EEAD4`). The mockup's colour options are dropped.
-- Email link `info@brxsolutions.sk` in the contact section: keep in the
-  dictionary, but the owner must create the mailbox before launch, or the
-  builder swaps it to the configured recipient. Flagged in README launch
-  checklist.
+- Email link in the contact section: address comes from
+  `src/config/company.ts`, not the dictionary. Shows `peter.beraxa@gmail.com`
+  until the `brxsolutions.sk` mailbox exists; then it is a one-line change.
 
 ## 8. Contact form and API (decided)
 
@@ -215,8 +223,11 @@ API (`apps/contact-api`)
   caddy is only reachable through the tunnel.
 - Origin check: reject requests whose `Origin`/`Referer` is not the site's own
   origin.
-- Send through Resend: from `web@brxsolutions.sk` (domain verified in Resend
-  via Cloudflare DNS records), to `CONTACT_TO`, `reply-to` = sender's email.
+- Send through Resend: from `CONTACT_FROM` (`web@brxsolutions.sk` once the
+  domain is verified in Resend via Cloudflare DNS records; before that Resend's
+  `onboarding@resend.dev`, which can only deliver to the account owner's own
+  address, which is the configured recipient anyway), to `CONTACT_TO`,
+  `reply-to` = sender's email.
   Plain-text email; all user input is treated as text, never as HTML.
 - Responses: `200 {ok:true}` / `303` on success; `400` with field errors;
   `429` on rate limit; `502` if Resend fails (logged, message tells the user
@@ -237,13 +248,16 @@ markdown body, and the short `tech` text stays in frontmatter.
 
 Umami self-hosted in the same compose stack at `stats.brxsolutions.sk`,
 Postgres as its database, the dashboard protected by Cloudflare Access (owner's
-email only). The site includes the Umami script tag with the website id from
+email only). The Access policy must bypass `/script.js` and `/api/send`, which
+visitors' browsers call anonymously; everything else on the host requires
+login. The site includes the Umami script tag with the website id from
 config. Umami in default mode sets no cookies and stores no personal data, so
 no banner. The privacy policy mentions the analytics and what it stores.
 
 ## 11. Infrastructure and deployment (decided)
 
-- One LXC or VM on Proxmox with Docker. Compose stack from `infra/`.
+- One LXC or VM on Proxmox with Docker (LXC needs `nesting=1`; owner creates
+  it). Compose stack from `infra/`. Single instance; no HA.
 - `cloudflared` runs as a container with a tunnel token from the
   environment. Tunnel routes: `brxsolutions.sk` and `www` to caddy;
   `stats.brxsolutions.sk` to umami. `www` redirects to apex at Cloudflare or
@@ -287,11 +301,23 @@ no banner. The privacy policy mentions the analytics and what it stores.
 - Mobile layout for every section, hamburger menu behaviour.
 - Icon handling (inline SVG paths from the mockup).
 - Repository layout details, lint config, commit conventions.
-- Choice of rate-limit and Turnstile libraries vs. hand-rolled.
+- Choice of rate-limit and Turnstile libraries vs. hand-rolled. Use
+  Cloudflare's documented always-pass/always-fail Turnstile test keys in
+  tests and local dev.
+- OG image: static PNG generated once by the builder from the logo and
+  tagline, committed to the repo.
 - How the stats strip values are typed (string, since they contain `×`, `→`).
 - Whether `www` redirect lives in Cloudflare rules or caddy.
 
-## 14. Launch checklist (for the owner, kept in README)
+## 14. Owner decisions (2026-11-03)
+
+1. Contact-section email link shows the owner's Gmail until the company
+   mailbox exists.
+2. Repository: `brxsolutions/brxsolutions.sk` under the GitHub organisation
+   `brxsolutions`.
+3. Git author stays the owner's Gmail for now.
+
+## 15. Launch checklist (for the owner, kept in README)
 
 1. Fill placeholders: name, availability month, years, IČO/DIČ/seat/register.
 2. Create GitHub org `brxsolutions` and the repository; add remote.
@@ -301,3 +327,5 @@ no banner. The privacy policy mentions the analytics and what it stores.
 6. Decide on `info@brxsolutions.sk` mailbox or replace the address.
 7. Umami website id into site config.
 8. GitHub Actions secrets for GHCR and the Access service token.
+9. Review the privacy policy draft and the client/employer names in the case
+   studies and experience timeline before the site goes public.

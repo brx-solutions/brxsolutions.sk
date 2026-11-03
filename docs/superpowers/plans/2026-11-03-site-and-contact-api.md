@@ -119,10 +119,10 @@ git add -A && git commit -m "chore: scaffold pnpm monorepo with Astro web app"
 ```ts
 export const company = {
   name: 'BRX Solutions s.r.o.',
-  founder: '[Meno Priezvisko]',
-  ico: '[00000000]', dic: '[0000000000]', icDph: '[SK0000000000]',
-  seat: 'Žilina, Slovensko',
-  register: '[Obchodný register OS Žilina, oddiel Sro, vložka 00000/L]',
+  founder: 'Peter Beraxa',
+  ico: '57688338', dic: '2122888691',
+  seat: 'Bytča, Slovensko',
+  register: 'Obchodný register Okresného súdu Žilina, oddiel: Sro, vložka č. 91617/L',
   email: 'peter.beraxa@gmail.com',
   domain: 'brxsolutions.sk',
   siteUrl: 'https://brxsolutions.sk',
@@ -274,7 +274,7 @@ Expected: FAIL, `schemas.ts` missing.
 - [ ] **Step 4: Run tests, build, typecheck**
 
 Run: `cd apps/web && pnpm test && pnpm build && pnpm typecheck`
-Expected: PASS; build succeeds (Astro validates frontmatter at build too); the placeholder warning lists `[Meno Priezvisko]`, `[mesiac rok]`, `[2025]`, `[00000000]` and the register placeholder.
+Expected: PASS; build succeeds (Astro validates frontmatter at build too); the placeholder warning lists `Peter Beraxa`, `[mesiac rok]`, `[2025]`, `57688338` and the register placeholder.
 
 - [ ] **Step 5: Commit**
 
@@ -300,7 +300,7 @@ git add -A && git commit -m "feat(web): content collections for experience, proj
 - [ ] **Step 1: Write the failing tests**
 
 `header.test.ts`: renders `Header` for `en` and asserts links `href="#sluzby"` … `href="#kontakt"` exist with the EN labels, the SK/EN switch renders `<a href="/" hreflang="sk" data-lang-switch>` and `<a href="/en/" hreflang="en" data-lang-switch aria-current="true">`, the CTA text is `Free consultation`, and a `<button aria-controls="main-nav" aria-expanded="false">` exists for mobile.
-`hero.test.ts`: `h1` contains `Back-end and AI` with `white-space: pre-line` class, the code window contains `company: "BRX Solutions s.r.o."` and `since: 2017`, no literal `[Meno Priezvisko]` is hardcoded (it comes from `company.founder`; assert equality with the config value).
+`hero.test.ts`: `h1` contains `Back-end and AI` with `white-space: pre-line` class, the code window contains `company: "BRX Solutions s.r.o."` and `since: 2017`, no literal `Peter Beraxa` is hardcoded (it comes from `company.founder`; assert equality with the config value).
 `pages.test.ts` (runs on `dist/`, after build): `dist/index.html` and `dist/en/index.html` exist; each contains all six section ids; `dist/en/index.html` contains `lang="en"`; neither contains `fonts.googleapis`.
 
 - [ ] **Step 2: Run to see them fail**

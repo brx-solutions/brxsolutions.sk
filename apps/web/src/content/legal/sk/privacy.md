@@ -5,7 +5,7 @@ updated: '2026-11-03'
 
 ## Prevádzkovateľ
 
-Prevádzkovateľom osobných údajov je spoločnosť **BRX Solutions s.r.o.**, IČO [00000000], so sídlom Bytča, Slovensko, zapísaná v [Obchodný register OS Žilina, oddiel Sro, vložka 00000/L] (ďalej „prevádzkovateľ“). Kontakt: e-mail uvedený v päte tejto stránky.
+Prevádzkovateľom osobných údajov je spoločnosť **BRX Solutions s.r.o.**, IČO 57688338, so sídlom Bytča, Slovensko, zapísaná v Obchodný register Okresného súdu Žilina, oddiel: Sro, vložka č. 91617/L (ďalej „prevádzkovateľ“). Kontakt: e-mail uvedený v päte tejto stránky.
 
 ## Aké údaje spracúvame a prečo
 

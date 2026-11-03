@@ -71,7 +71,7 @@ Anti-goals (it is a failure even if it works)
 - Local tooling observed: Node 20.19 via nvm, Docker 28, git 2.50. Target Node
   22 LTS; pin in `.nvmrc` and `engines`, document `nvm install` in README.
 - Mockup placeholders remain placeholders in content files until the owner
-  fills them: `[Meno Priezvisko]`, `[mesiac rok]`, `[2025]`, `IČO [00000000]`.
+  fills them: `Peter Beraxa`, `[mesiac rok]`, `[2025]`, `IČO 57688338`.
 
 ## 4. Architecture (decided)
 

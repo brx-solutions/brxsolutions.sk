@@ -7,4 +7,4 @@ tags: ['Claude Agent SDK', 'FastAPI · HTMX', 'Telegram', 'Docker']
 order: 1
 ---
 
-Platforma pre malých agentov na jednom serveri. Prvý je tréner: jedlá, špajza, check-iny a pripomienky cez Telegram. Kalórie počíta kód, model dodáva len suroviny – čísla sú deterministické.
+Platforma pre malých agentov na jednom serveri. Napríklad výživový poradca: jedlá, špajza, check-iny a pripomienky cez Telegram. Kalórie počíta kód, model dodáva len suroviny – čísla sú deterministické.

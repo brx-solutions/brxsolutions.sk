@@ -1,7 +1,7 @@
 ---
 title: 'Automated football previews on Palantir Foundry'
 context: 'Media group · sports'
-year: '2025'
+year: '2026'
 metric: '4 leagues'
 metricLabel: 'match previews generated automatically every week'
 problem: 'The newsroom could not keep up with previews for Ligue 1, Bundesliga, Premier League and Serie A – repetitive work with little added value.'

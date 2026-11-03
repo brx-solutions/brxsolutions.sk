@@ -1,7 +1,7 @@
 ---
 title: 'Automatizované futbalové preview na Palantir Foundry'
 context: 'Mediálna skupina · šport'
-year: '2025'
+year: '2026'
 metric: '4 ligy'
 metricLabel: 'preview zápasov každý týždeň automaticky'
 problem: 'Redakcia nestíhala písať preview pre Ligue 1, Bundesligu, Premier League a Serie A – opakujúca sa práca bez pridanej hodnoty.'

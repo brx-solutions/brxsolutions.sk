@@ -7,4 +7,4 @@ tags: ['Claude Agent SDK', 'FastAPI · HTMX', 'Telegram', 'Docker']
 order: 1
 ---
 
-A platform for small agents on one server. The first is a coach: meals, pantry, check-ins and reminders via Telegram. Calories are computed by code, the model only supplies ingredients – numbers stay deterministic.
+A platform for small agents on one server. For example a coach: meals, pantry, check-ins and reminders via Telegram. Calories are computed by code, the model only supplies ingredients – numbers stay deterministic.

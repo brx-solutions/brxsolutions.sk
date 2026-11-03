@@ -16,5 +16,9 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
   integrations: [sitemap({ i18n: { defaultLocale: 'sk', locales: { sk: 'sk-SK', en: 'en' } } })],
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    // Never inline scripts: the production CSP has no 'unsafe-inline' for script-src.
+    build: { assetsInlineLimit: 0 },
+  },
 });

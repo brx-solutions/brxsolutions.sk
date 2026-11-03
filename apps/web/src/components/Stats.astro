@@ -1,0 +1,23 @@
+---
+import { t, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = t(locale);
+---
+
+<section aria-label={locale === 'sk' ? 'Čísla' : 'Numbers'} class="border-b border-line bg-surface">
+  <div class="mx-auto grid max-w-page grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-8 px-5 py-14 md:px-8">
+    {
+      d.stats.map((s) => (
+        <div class="flex flex-col gap-2.5">
+          <span aria-hidden="true" class="h-[3px] w-8 rounded-sm bg-accent" />
+          <span class="font-display text-[52px] leading-none font-bold tracking-[-0.04em] text-white">{s.value}</span>
+          <span class="text-sm leading-[1.45] text-muted">{s.label}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>

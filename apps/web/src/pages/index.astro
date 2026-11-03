@@ -1,12 +1,11 @@
 ---
-import '../styles/global.css';
+import Base from '../layouts/Base.astro';
+import Home from '../components/Home.astro';
+import { t, localeHome } from '../i18n';
+
+const d = t('sk');
 ---
 
-<!doctype html>
-<html lang="sk">
-  <head>
-    <meta charset="utf-8" />
-    <title>BRX Solutions</title>
-  </head>
-  <body></body>
-</html>
+<Base locale="sk" title={d.meta.title} description={d.meta.description} alternates={{ sk: localeHome('sk'), en: localeHome('en') }}>
+  <Home locale="sk" />
+</Base>

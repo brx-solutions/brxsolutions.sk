@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import Home from '../../components/Home.astro';
+import { t, localeHome } from '../../i18n';
+
+const d = t('en');
+---
+
+<Base locale="en" title={d.meta.title} description={d.meta.description} alternates={{ sk: localeHome('sk'), en: localeHome('en') }}>
+  <Home locale="en" />
+</Base>

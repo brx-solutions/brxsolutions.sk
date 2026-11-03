@@ -1,0 +1,91 @@
+---
+import Icon from './Icon.astro';
+import { company } from '../config/company';
+import { t, anchors, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const d = t(locale);
+const str = (v: string) => `"${v}"`;
+const list = (xs: string[]) => xs.map(str);
+---
+
+<section id="top" class="hero relative overflow-hidden border-b border-line">
+  <div class="mx-auto flex max-w-page flex-wrap items-center gap-16 px-5 pt-20 pb-16 md:px-8 md:pt-[120px] md:pb-[104px]">
+    <div class="flex min-w-0 flex-[1_1_540px] flex-col gap-[30px]">
+      <p class="m-0 inline-flex items-center gap-2.5 font-mono text-[13px] text-accent">
+        <span aria-hidden="true" class="h-px w-7 bg-accent"></span>{d.hero.eyebrow}
+      </p>
+      <h1 class="m-0 font-display text-[clamp(48px,6.2vw,84px)] leading-[0.98] font-bold tracking-[-0.04em] whitespace-pre-line">{d.hero.title}</h1>
+      <p class="m-0 max-w-[540px] text-xl leading-[1.55] text-ink-2">{d.hero.sub}</p>
+      <div class="flex flex-wrap items-center gap-3.5">
+        <a
+          href={`#${anchors.contact}`}
+          class="inline-flex h-[54px] items-center gap-2.5 rounded-xl bg-accent px-[26px] text-[15px] font-bold text-bg hover:text-bg"
+        >
+          {d.hero.cta1}
+          <Icon name="arrow" size={18} strokeWidth={2.2} />
+        </a>
+        <a
+          href={`#${anchors.projects}`}
+          class="inline-flex h-[54px] items-center rounded-xl border border-white/20 bg-white/4 px-[26px] text-[15px] font-semibold text-ink"
+        >
+          {d.hero.cta2}
+        </a>
+      </div>
+      <div class="flex items-center gap-2.5 text-sm text-muted">
+        <span aria-hidden="true" class="h-2 w-2 rounded-full bg-accent shadow-[0_0_0_4px_rgba(20,184,166,0.22)]"></span>
+        {d.hero.availability}
+      </div>
+    </div>
+
+    <div class="flex min-w-0 flex-[1_1_400px] justify-center">
+      <div class="w-full max-w-[500px] overflow-hidden rounded-2xl border border-line-2 bg-surface shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+        <div class="flex items-center justify-between border-b border-line bg-surface-2 px-4 py-3">
+          <div class="flex gap-1.5" aria-hidden="true">
+            <span class="h-2.5 w-2.5 rounded-full bg-[#3A4352]"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-[#3A4352]"></span>
+            <span class="h-2.5 w-2.5 rounded-full bg-[#3A4352]"></span>
+          </div>
+          <span class="font-mono text-xs text-muted">profile.ts</span>
+          <span class="font-mono text-[11px] text-accent">● live</span>
+        </div>
+        <pre
+          class="m-0 overflow-x-auto px-6 py-[22px] font-mono text-sm leading-[1.75] whitespace-pre text-code"><span class="text-sky">const</span> engineer = {"{"}
+  name:    <span class="text-accent-light">{str(company.founder)}</span>,
+  company: <span class="text-accent-light">{str(company.name)}</span>,
+  focus:   [{list(d.hero.code.focus).map((v, i) => <Fragment>{i > 0 && ', '}<span class="text-accent-light">{v}</span></Fragment>)}],
+  stack:   [{list(d.hero.code.stack).map((v, i) => <Fragment>{i > 0 && ', '}<span class="text-accent-light">{v}</span></Fragment>)}],
+  since:   <span class="text-pink">{company.since}</span>,
+  remote:  <span class="text-sky">{String(d.hero.code.remote)}</span>,
+{"}"};<span class="cursor ml-0.5 inline-block h-[17px] w-2 bg-accent align-[-3px]"></span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-image:
+      radial-gradient(circle at 78% 20%, rgba(20, 184, 166, 0.16), transparent 42%),
+      radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      28px 28px;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .cursor {
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+    }
+  }
+</style>

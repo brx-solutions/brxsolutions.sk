@@ -36,7 +36,9 @@ export interface Dictionary {
     title: string;
     note: string;
     fullstack: string;
-    groups: { name: string; count: string; bar: string; items: string[] }[];
+    /** e.g. (8) => '8 nástrojov'; the number is always items.length */
+    countLabel: (n: number) => string;
+    groups: { name: string; bar: string; items: string[] }[];
   };
   experience: { title: string; sub: string; cta: string };
   projects: { title: string; sub: string; more: string; less: string; nda: string };

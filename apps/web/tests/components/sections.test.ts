@@ -33,7 +33,10 @@ describe('Stack', () => {
     expect(html).not.toContain('style=');
     for (const w of ['95%', '88%', '80%', '85%'])
       expect(html).toMatch(new RegExp(`<rect[^>]*width="${w}"`));
-    expect(html).toContain('8 nástrojov');
+    // The count is derived from the item list, never typed by hand.
+    const sk = (await import('../../src/i18n/sk')).sk;
+    for (const g of sk.stack.groups) expect(html).toContain(`${g.items.length} nástrojov`);
+    expect(html).not.toContain('count');
     expect(html).toContain('Cloudflare Zero Trust');
   });
 });

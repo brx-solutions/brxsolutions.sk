@@ -30,6 +30,12 @@ describe('i18n', () => {
     }
   });
 
+  it('stack groups carry no hand-written tool count', () => {
+    for (const d of [sk, en]) for (const g of d.stack.groups) expect(g).not.toHaveProperty('count');
+    expect(sk.stack.countLabel(8)).toBe('8 nástrojov');
+    expect(en.stack.countLabel(8)).toBe('8 tools');
+  });
+
   it('localePath builds prefixed urls with trailing slash', () => {
     expect(localePath('sk', 'ochrana-osobnych-udajov')).toBe('/ochrana-osobnych-udajov/');
     expect(localePath('en', 'privacy')).toBe('/en/privacy/');

@@ -80,10 +80,10 @@ export const sk: Dictionary = {
     note: 'Produkčne overený stack z reálnych projektov. Ďalšie: Robot Framework, Postman, Firestore, Secret Manager, Cloud DLP, Pants, 1Password CLI.',
     fullstack:
       'Som back-end inžinier, ale nekončím na API. V každom projekte som písal aj frontend – React, Lit, HTMX, Next.js server actions.\n\nPre klienta to znamená: jeden človek dodá celú funkciu od databázy po obrazovku.',
+    countLabel: (n) => `${n} nástrojov`,
     groups: [
       {
         name: 'Back-end',
-        count: '8 nástrojov',
         bar: '95%',
         items: [
           'Python',
@@ -98,7 +98,6 @@ export const sk: Dictionary = {
       },
       {
         name: 'AI & dáta',
-        count: '7 nástrojov',
         bar: '88%',
         items: [
           'Gemini / Vertex AI',
@@ -112,7 +111,6 @@ export const sk: Dictionary = {
       },
       {
         name: 'Frontend & kvalita',
-        count: '8 nástrojov',
         bar: '80%',
         items: [
           'React',
@@ -127,10 +125,10 @@ export const sk: Dictionary = {
       },
       {
         name: 'Cloud & DevOps',
-        count: '7 nástrojov',
         bar: '85%',
         items: [
           'GCP Cloud Run',
+          'AWS',
           'Terraform',
           'Docker',
           'Kubernetes',

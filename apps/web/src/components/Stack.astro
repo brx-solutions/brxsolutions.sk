@@ -21,7 +21,9 @@ const d = t(locale);
         <div class="flex flex-col gap-4 rounded-card border border-white/10 bg-bg p-[26px]">
           <div class="flex items-center justify-between">
             <h3 class="m-0 font-display text-lg font-semibold tracking-[-0.01em]">{grp.name}</h3>
-            <span class="font-mono text-xs text-accent-light">{grp.count}</span>
+            <span class="font-mono text-xs text-accent-light">
+              {d.stack.countLabel(grp.items.length)}
+            </span>
           </div>
           <svg class="h-1 w-full overflow-hidden rounded-sm bg-white/8" aria-hidden="true">
             <rect width={grp.bar} height="100%" rx="2" class="fill-accent" />

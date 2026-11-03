@@ -80,10 +80,10 @@ export const en: Dictionary = {
     note: 'A production-proven stack from real projects. Also: Robot Framework, Postman, Firestore, Secret Manager, Cloud DLP, Pants, 1Password CLI.',
     fullstack:
       'I am a back-end engineer, but I do not stop at the API. In every project I also wrote the frontend – React, Lit, HTMX, Next.js server actions.\n\nFor a client this means one person delivers a whole feature from database to screen.',
+    countLabel: (n) => `${n} ${n === 1 ? 'tool' : 'tools'}`,
     groups: [
       {
         name: 'Back-end',
-        count: '8 tools',
         bar: '95%',
         items: [
           'Python',
@@ -98,7 +98,6 @@ export const en: Dictionary = {
       },
       {
         name: 'AI & data',
-        count: '7 tools',
         bar: '88%',
         items: [
           'Gemini / Vertex AI',
@@ -112,7 +111,6 @@ export const en: Dictionary = {
       },
       {
         name: 'Frontend & quality',
-        count: '8 tools',
         bar: '80%',
         items: [
           'React',

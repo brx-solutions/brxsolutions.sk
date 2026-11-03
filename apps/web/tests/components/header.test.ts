@@ -8,8 +8,8 @@ describe('Header', () => {
     for (const a of ['sluzby', 'stack', 'skusenosti', 'projekty', 'vlastne', 'kontakt']) {
       expect(html).toContain(`href="#${a}"`);
     }
-    expect(html).toContain('>Services<');
-    expect(html).toContain('>Case studies<');
+    expect(html).toMatch(/>\s*Services\s*</);
+    expect(html).toMatch(/>\s*Case studies\s*</);
     expect(html).toContain('Free consultation');
     expect(html).toMatch(/<button[^>]*aria-controls="main-nav"[^>]*aria-expanded="false"/);
   });
@@ -17,6 +17,8 @@ describe('Header', () => {
   it('renders the language switch pointing at both locale homes', async () => {
     const html = await renderToHtml(Header, { locale: 'en' });
     expect(html).toMatch(/<a[^>]*href="\/"[^>]*hreflang="sk"[^>]*data-lang-switch/);
-    expect(html).toMatch(/<a[^>]*href="\/en\/"[^>]*hreflang="en"[^>]*data-lang-switch[^>]*aria-current="true"/);
+    expect(html).toMatch(
+      /<a[^>]*href="\/en\/"[^>]*hreflang="en"[^>]*data-lang-switch[^>]*aria-current="true"/,
+    );
   });
 });

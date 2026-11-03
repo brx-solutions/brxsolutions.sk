@@ -3,7 +3,11 @@ export interface RateLimiter {
 }
 
 /** Sliding-window limiter kept in memory. One process, one window per key. */
-export function createRateLimiter(opts: { limit: number; windowMs: number; now?: () => number }): RateLimiter {
+export function createRateLimiter(opts: {
+  limit: number;
+  windowMs: number;
+  now?: () => number;
+}): RateLimiter {
   const { limit, windowMs, now = Date.now } = opts;
   const hits = new Map<string, number[]>();
   return {
@@ -18,7 +22,10 @@ export function createRateLimiter(opts: { limit: number; windowMs: number; now?:
       const times = hits.get(key) ?? [];
       if (times.length >= limit) {
         const oldest = times[0] ?? t;
-        return { allowed: false, retryAfterSec: Math.max(1, Math.ceil((oldest + windowMs - t) / 1000)) };
+        return {
+          allowed: false,
+          retryAfterSec: Math.max(1, Math.ceil((oldest + windowMs - t) / 1000)),
+        };
       }
       times.push(t);
       hits.set(key, times);

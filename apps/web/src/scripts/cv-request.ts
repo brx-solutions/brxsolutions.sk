@@ -7,6 +7,10 @@ document.querySelectorAll<HTMLAnchorElement>('[data-cv-request]').forEach((a) =>
     const message = form.querySelector<HTMLTextAreaElement>('textarea[name=message]');
     if (select) select.value = 'cv';
     if (message) message.placeholder = form.dataset.cvPlaceholder ?? message.placeholder;
-    setTimeout(() => form.querySelector<HTMLInputElement>('input[name=name]')?.focus({ preventScroll: true }), 300);
+    setTimeout(
+      () =>
+        form.querySelector<HTMLInputElement>('input[name=name]')?.focus({ preventScroll: true }),
+      300,
+    );
   });
 });

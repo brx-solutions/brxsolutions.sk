@@ -13,7 +13,14 @@ const d = t(locale);
 const projects = await localized('projects', locale);
 ---
 
-<Section id={anchors.projects} no="04" eyebrow={d.nav.projects} title={d.projects.title} sub={d.projects.sub} tone="surface">
+<Section
+  id={anchors.projects}
+  no="04"
+  eyebrow={d.nav.projects}
+  title={d.projects.title}
+  sub={d.projects.sub}
+  tone="surface"
+>
   <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
     {
       projects.map(({ data: p }) => (
@@ -23,10 +30,14 @@ const projects = await localized('projects', locale);
             <span class="font-mono text-xs text-muted-2">{p.year}</span>
           </div>
           <div class="flex flex-col gap-1">
-            <span class="font-display text-[44px] leading-none font-bold tracking-[-0.04em] text-white">{p.metric}</span>
+            <span class="font-display text-[44px] leading-none font-bold tracking-[-0.04em] text-white">
+              {p.metric}
+            </span>
             <span class="text-sm font-medium text-accent-light">{p.metricLabel}</span>
           </div>
-          <h3 class="m-0 font-display text-[21px] leading-[1.25] font-semibold tracking-[-0.02em]">{p.title}</h3>
+          <h3 class="m-0 font-display text-[21px] leading-[1.25] font-semibold tracking-[-0.02em]">
+            {p.title}
+          </h3>
           <p class="m-0 text-[15px] leading-[1.6] text-muted">{p.problem}</p>
           <div class="grid grid-cols-[3px_1fr] items-stretch gap-3.5">
             <span aria-hidden="true" class="rounded-sm bg-accent" />

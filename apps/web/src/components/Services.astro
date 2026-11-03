@@ -11,20 +11,34 @@ const { locale } = Astro.props;
 const d = t(locale);
 ---
 
-<Section id={anchors.services} no="01" eyebrow={d.nav.services} title={d.services.title} sub={d.services.sub}>
+<Section
+  id={anchors.services}
+  no="01"
+  eyebrow={d.nav.services}
+  title={d.services.title}
+  sub={d.services.sub}
+>
   <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
     <article
       class="featured flex flex-col gap-5 rounded-card border border-accent/35 p-7 md:col-span-2 md:p-9"
     >
       <div class="flex items-center justify-between">
-        <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-bg">
+        <span
+          class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-bg"
+        >
           <Icon name="sparkle" size={24} />
         </span>
-        <span class="rounded-full bg-accent/14 px-2.5 py-1.5 font-mono text-xs text-accent-light">{d.services.featuredBadge}</span>
+        <span class="rounded-full bg-accent/14 px-2.5 py-1.5 font-mono text-xs text-accent-light"
+          >{d.services.featuredBadge}</span
+        >
       </div>
-      <h3 class="m-0 font-display text-[30px] leading-[1.1] font-bold tracking-[-0.03em]">{d.services.featured.title}</h3>
+      <h3 class="m-0 font-display text-[30px] leading-[1.1] font-bold tracking-[-0.03em]">
+        {d.services.featured.title}
+      </h3>
       <p class="m-0 max-w-[620px] text-base leading-[1.6] text-ink-2">{d.services.featured.desc}</p>
-      <p class="m-0 rounded-r-[10px] border-l-[3px] border-accent bg-white/4 px-[18px] py-3.5 text-[15px] leading-[1.55] font-medium text-ink">
+      <p
+        class="m-0 rounded-r-[10px] border-l-[3px] border-accent bg-white/4 px-[18px] py-3.5 text-[15px] leading-[1.55] font-medium text-ink"
+      >
         {d.services.featured.quote}
       </p>
       <div class="mt-auto flex flex-wrap gap-2">
@@ -37,7 +51,9 @@ const d = t(locale);
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/14 text-accent-light">
             <Icon name={svc.icon} size={22} strokeWidth={1.9} />
           </span>
-          <h3 class="m-0 font-display text-[21px] leading-[1.2] font-semibold tracking-[-0.02em]">{svc.title}</h3>
+          <h3 class="m-0 font-display text-[21px] leading-[1.2] font-semibold tracking-[-0.02em]">
+            {svc.title}
+          </h3>
           <p class="m-0 text-[15px] leading-[1.6] text-muted">{svc.desc}</p>
           <div class="mt-auto flex flex-wrap gap-2">
             {svc.tags.map((tag) => (

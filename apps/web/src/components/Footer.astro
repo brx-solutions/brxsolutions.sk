@@ -12,13 +12,19 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-line">
-  <div class="mx-auto flex max-w-page flex-wrap justify-between gap-4 px-5 py-8 text-[13px] text-muted-2 md:px-8">
+  <div
+    class="mx-auto flex max-w-page flex-wrap justify-between gap-4 px-5 py-8 text-[13px] text-muted-2 md:px-8"
+  >
     <div class="flex flex-col gap-2">
       <span class="inline-flex items-center gap-2.5">
         <Logo size={20} fill="#7B8794" />
-        © {year} {company.name} · IČO {company.ico} · {company.seat} · {company.domain}
+        © {year}
+        {company.name} · IČO {company.ico} · {company.seat} · {company.domain}
       </span>
-      <a href={localePath(locale, legalPath[locale])} class="text-muted-2 underline-offset-2 hover:text-accent-light">{d.legal.title}</a>
+      <a
+        href={localePath(locale, legalPath[locale])}
+        class="text-muted-2 underline-offset-2 hover:text-accent-light">{d.legal.title}</a
+      >
     </div>
     <span class="max-w-[560px] leading-[1.6]">{d.footer.built}</span>
   </div>

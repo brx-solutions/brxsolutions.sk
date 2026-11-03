@@ -12,12 +12,19 @@ interface Props {
 const { id, no, eyebrow, title, sub, subMax = 'max-w-[400px]', tone = 'bg', label } = Astro.props;
 ---
 
-<section id={id} class:list={['border-b border-line', tone === 'surface' ? 'bg-surface' : 'bg-bg']} aria-label={label}>
+<section
+  id={id}
+  class:list={['border-b border-line', tone === 'surface' ? 'bg-surface' : 'bg-bg']}
+  aria-label={label}
+>
   <div class="mx-auto flex max-w-page flex-col gap-11 px-5 py-16 md:px-8 md:py-[104px]">
     <div class="flex flex-wrap items-end justify-between gap-6">
       <div class="flex max-w-[620px] flex-col gap-3.5">
         <p class="m-0 font-mono text-[13px] text-accent">{no} / {eyebrow}</p>
-        <h2 class="m-0 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em] whitespace-pre-line">{title}</h2>
+        <h2
+          class="m-0 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em] whitespace-pre-line"
+          set:text={title}
+        />
       </div>
       {sub && <p class:list={['m-0 text-base leading-[1.6] text-muted', subMax]}>{sub}</p>}
       <slot name="aside" />

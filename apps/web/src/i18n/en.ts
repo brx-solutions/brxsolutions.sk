@@ -25,7 +25,11 @@ export const en: Dictionary = {
     cta1: 'Discuss a project',
     cta2: 'See case studies',
     availability: 'Available from [month year]',
-    code: { focus: ['backend', 'GenAI / RAG', 'data'], stack: ['Python', 'TypeScript', 'GCP'], remote: true },
+    code: {
+      focus: ['backend', 'GenAI / RAG', 'data'],
+      stack: ['Python', 'TypeScript', 'GCP'],
+      remote: true,
+    },
   },
   stats: [
     { value: '9+', label: 'years in IT, since 2017' },
@@ -40,7 +44,8 @@ export const en: Dictionary = {
     featured: {
       title: 'AI agents, RAG & LLM systems',
       desc: 'Agents that do real work, not demos: connected to your data (RAG, hybrid search), with tools (MCP, your APIs), a schedule and a channel to people (Telegram, Slack, web).',
-      quote: 'The emphasis is on what the model must not do: calculations and rules live in code, the model only where language is needed.',
+      quote:
+        'The emphasis is on what the model must not do: calculations and rules live in code, the model only where language is needed.',
       tags: ['RAG · pgvector', 'Claude Agent SDK · MCP', 'Gemini · Vertex AI', 'Prompt tests'],
     },
     items: [
@@ -74,25 +79,59 @@ export const en: Dictionary = {
         name: 'Back-end',
         count: '8 tools',
         bar: '95%',
-        items: ['Python', 'TypeScript', 'Node.js', 'Fastify', 'Flask · FastAPI', 'Next.js', 'PostgreSQL · AlloyDB', 'SQLAlchemy · Zod'],
+        items: [
+          'Python',
+          'TypeScript',
+          'Node.js',
+          'Fastify',
+          'Flask · FastAPI',
+          'Next.js',
+          'PostgreSQL · AlloyDB',
+          'SQLAlchemy · Zod',
+        ],
       },
       {
         name: 'AI & data',
         count: '7 tools',
         bar: '88%',
-        items: ['Gemini / Vertex AI', 'Claude Agent SDK · MCP', 'RAG · pgvector', 'Palantir Foundry', 'Netflix Conductor', 'PySpark', 'pandas'],
+        items: [
+          'Gemini / Vertex AI',
+          'Claude Agent SDK · MCP',
+          'RAG · pgvector',
+          'Palantir Foundry',
+          'Netflix Conductor',
+          'PySpark',
+          'pandas',
+        ],
       },
       {
         name: 'Frontend & quality',
         count: '8 tools',
         bar: '80%',
-        items: ['React', 'Lit', 'HTMX', 'Tailwind', 'Vitest', 'pytest', 'Playwright', 'OpenTelemetry'],
+        items: [
+          'React',
+          'Lit',
+          'HTMX',
+          'Tailwind',
+          'Vitest',
+          'pytest',
+          'Playwright',
+          'OpenTelemetry',
+        ],
       },
       {
         name: 'Cloud & DevOps',
         count: '7 tools',
         bar: '85%',
-        items: ['GCP Cloud Run', 'Terraform', 'Docker', 'Kubernetes', 'GitHub Actions', 'GitLab CI', 'Cloudflare Zero Trust'],
+        items: [
+          'GCP Cloud Run',
+          'Terraform',
+          'Docker',
+          'Kubernetes',
+          'GitHub Actions',
+          'GitLab CI',
+          'Cloudflare Zero Trust',
+        ],
       },
     ],
   },
@@ -120,9 +159,21 @@ export const en: Dictionary = {
     title: 'Four steps, no surprises',
     steps: [
       { no: '1', title: 'Discovery call', desc: 'A free 30 minutes. Goals, context, constraints.' },
-      { no: '2', title: 'Audit & proposal', desc: 'For an existing system, audit first. Scope, architecture and price without surprises.' },
-      { no: '3', title: 'Iterative delivery', desc: 'Spec before code, TDD, a demo every 1–2 weeks. Benchmark old vs. new.' },
-      { no: '4', title: 'Launch & handover', desc: 'Infra via Terraform, rollback ready, runbooks. Optional support.' },
+      {
+        no: '2',
+        title: 'Audit & proposal',
+        desc: 'For an existing system, audit first. Scope, architecture and price without surprises.',
+      },
+      {
+        no: '3',
+        title: 'Iterative delivery',
+        desc: 'Spec before code, TDD, a demo every 1–2 weeks. Benchmark old vs. new.',
+      },
+      {
+        no: '4',
+        title: 'Launch & handover',
+        desc: 'Infra via Terraform, rollback ready, runbooks. Optional support.',
+      },
     ],
   },
   strengths: {
@@ -130,14 +181,38 @@ export const en: Dictionary = {
     title: 'What you get',
     sub: 'Observed on real projects, not copied from a job ad.',
     items: [
-      { title: 'I take over legacy systems', desc: 'Audit, plan, rewrite – with a ledger of what left and why.' },
-      { title: 'Measurable RAG performance tuning', desc: 'Serial LLM calls, candidate explosion, needless RPCs – fixed step by step, with numbers.' },
-      { title: 'Foundry + GCP + LLM under one roof', desc: 'From source API to published article, no hand-offs.' },
-      { title: 'Cross-team integrations', desc: 'I negotiate the contract, find and document the permission blocker.' },
-      { title: 'Process discipline', desc: 'TDD, spec before code, runbooks, infra only via Terraform.' },
-      { title: 'Production caution', desc: 'Image swap instead of :latest, rollback digest, migrations on dev first.' },
-      { title: 'Clear for stakeholders', desc: 'I explain a technical pipeline in plain terms – years as a Scrum Master.' },
-      { title: 'AI-assisted development as a service', desc: 'Speed without losing quality – and I can set it up for your team too.' },
+      {
+        title: 'I take over legacy systems',
+        desc: 'Audit, plan, rewrite – with a ledger of what left and why.',
+      },
+      {
+        title: 'Measurable RAG performance tuning',
+        desc: 'Serial LLM calls, candidate explosion, needless RPCs – fixed step by step, with numbers.',
+      },
+      {
+        title: 'Foundry + GCP + LLM under one roof',
+        desc: 'From source API to published article, no hand-offs.',
+      },
+      {
+        title: 'Cross-team integrations',
+        desc: 'I negotiate the contract, find and document the permission blocker.',
+      },
+      {
+        title: 'Process discipline',
+        desc: 'TDD, spec before code, runbooks, infra only via Terraform.',
+      },
+      {
+        title: 'Production caution',
+        desc: 'Image swap instead of :latest, rollback digest, migrations on dev first.',
+      },
+      {
+        title: 'Clear for stakeholders',
+        desc: 'I explain a technical pipeline in plain terms – years as a Scrum Master.',
+      },
+      {
+        title: 'AI-assisted development as a service',
+        desc: 'Speed without losing quality – and I can set it up for your team too.',
+      },
     ],
   },
   contact: {
@@ -177,7 +252,8 @@ export const en: Dictionary = {
     back: 'Back to home',
   },
   footer: {
-    built: 'I designed, built and deployed this site myself – DNS, Cloudflare, hosting, with the help of AI agents. I work the same way on client projects.',
+    built:
+      'I designed, built and deployed this site myself – DNS, Cloudflare, hosting, with the help of AI agents. I work the same way on client projects.',
     rights: 'All rights reserved.',
   },
 };

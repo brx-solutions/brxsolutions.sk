@@ -20,10 +20,14 @@ describe('loadConfig', () => {
   });
   it('requires RESEND_API_KEY for the resend transport', () => {
     expect(() => loadConfig({ ...base, MAIL_TRANSPORT: 'resend' })).toThrow(/RESEND_API_KEY/);
-    expect(loadConfig({ ...base, MAIL_TRANSPORT: 'resend', RESEND_API_KEY: 'k', PORT: '4000' }).port).toBe(4000);
+    expect(
+      loadConfig({ ...base, MAIL_TRANSPORT: 'resend', RESEND_API_KEY: 'k', PORT: '4000' }).port,
+    ).toBe(4000);
   });
   it('rejects an unknown transport and a SITE_ORIGIN with a trailing slash', () => {
     expect(() => loadConfig({ ...base, MAIL_TRANSPORT: 'smtp' })).toThrow(/MAIL_TRANSPORT/);
-    expect(() => loadConfig({ ...base, MAIL_TRANSPORT: 'console', SITE_ORIGIN: 'https://brxsolutions.sk/' })).toThrow(/SITE_ORIGIN/);
+    expect(() =>
+      loadConfig({ ...base, MAIL_TRANSPORT: 'console', SITE_ORIGIN: 'https://brxsolutions.sk/' }),
+    ).toThrow(/SITE_ORIGIN/);
   });
 });

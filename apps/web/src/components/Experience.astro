@@ -11,7 +11,10 @@ interface Props {
 const { locale } = Astro.props;
 const d = t(locale);
 const jobs = await Promise.all(
-  (await localized('experience', locale)).map(async (entry) => ({ entry, Content: (await render(entry)).Content })),
+  (await localized('experience', locale)).map(async (entry) => ({
+    entry,
+    Content: (await render(entry)).Content,
+  })),
 );
 ---
 
@@ -19,7 +22,11 @@ const jobs = await Promise.all(
   <div class="mx-auto flex max-w-page flex-wrap gap-10 px-5 py-16 md:gap-16 md:px-8 md:py-[104px]">
     <div class="flex flex-[0_1_360px] flex-col gap-4">
       <p class="m-0 font-mono text-[13px] text-accent">03 / {d.nav.experience}</p>
-      <h2 class="m-0 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em]">{d.experience.title}</h2>
+      <h2
+        class="m-0 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em]"
+      >
+        {d.experience.title}
+      </h2>
       <p class="m-0 text-base leading-[1.6] text-muted">{d.experience.sub}</p>
       <a
         href={`#${anchors.contact}`}
@@ -39,14 +46,18 @@ const jobs = await Promise.all(
                 aria-hidden="true"
                 class:list={[
                   'mt-1.5 h-3 w-3 flex-none rounded-full',
-                  i === 0 ? 'bg-accent shadow-[0_0_0_4px_rgba(20,184,166,0.25)]' : 'bg-surface-2 shadow-[0_0_0_4px_rgba(255,255,255,0.08)]',
+                  i === 0
+                    ? 'bg-accent shadow-[0_0_0_4px_rgba(20,184,166,0.25)]'
+                    : 'bg-surface-2 shadow-[0_0_0_4px_rgba(255,255,255,0.08)]',
                 ]}
               />
               <span aria-hidden="true" class="mt-2 w-px flex-1 bg-line-2" />
             </div>
             <div class="flex min-w-0 flex-col gap-2 pb-9">
               <span class="font-mono text-[13px] text-accent-light">{entry.data.period}</span>
-              <h3 class="m-0 font-display text-[21px] leading-[1.2] font-semibold tracking-[-0.02em]">{entry.data.role}</h3>
+              <h3 class="m-0 font-display text-[21px] leading-[1.2] font-semibold tracking-[-0.02em]">
+                {entry.data.role}
+              </h3>
               <span class="text-sm font-medium text-ink-2">{entry.data.client}</span>
               <div class="prose-body mt-0.5 text-[15px] leading-[1.6] text-muted">
                 <Content />

@@ -7,7 +7,14 @@ interface Props {
 const { size = 38, fill = 'var(--color-accent)', class: className } = Astro.props;
 ---
 
-<svg role="img" aria-label="BRX Solutions" width={size} height={size} viewBox="0 0 64 64" class={className}>
+<svg
+  role="img"
+  aria-label="BRX Solutions"
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  class={className}
+>
   <rect width="64" height="64" rx="14" fill={fill}></rect>
   <rect x="15" y="14" width="9" height="36" rx="2.5" fill="#0A0E14"></rect>
   <polyline

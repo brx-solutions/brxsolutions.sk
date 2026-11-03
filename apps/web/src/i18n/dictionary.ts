@@ -42,7 +42,12 @@ export interface Dictionary {
   projects: { title: string; sub: string; more: string; less: string; nda: string };
   own: { eyebrow: string; title: string; sub: string; more: string; less: string };
   process: { eyebrow: string; title: string; steps: { no: string; title: string; desc: string }[] };
-  strengths: { eyebrow: string; title: string; sub: string; items: { title: string; desc: string }[] };
+  strengths: {
+    eyebrow: string;
+    title: string;
+    sub: string;
+    items: { title: string; desc: string }[];
+  };
   contact: {
     title: string;
     sub: string;

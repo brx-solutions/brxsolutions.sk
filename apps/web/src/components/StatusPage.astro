@@ -17,11 +17,18 @@ const paths = kind === 'sent' ? sentPath : failedPath;
 const alternates = { sk: localePath('sk', paths.sk), en: localePath('en', paths.en) };
 ---
 
-<Base locale={locale} title={`${copy.title} – ${company.name}`} description={copy.body} alternates={alternates}>
+<Base
+  locale={locale}
+  title={`${copy.title} – ${company.name}`}
+  description={copy.body}
+  alternates={alternates}
+>
   <meta slot="head" name="robots" content="noindex" />
   <div class="flex min-h-screen flex-col">
     <Header locale={locale} alternates={alternates} />
-    <main class="mx-auto flex w-full max-w-[760px] flex-1 flex-col items-start gap-6 px-5 py-24 md:px-8 md:py-32">
+    <main
+      class="mx-auto flex w-full max-w-[760px] flex-1 flex-col items-start gap-6 px-5 py-24 md:px-8 md:py-32"
+    >
       <span
         class:list={[
           'inline-flex h-12 w-12 items-center justify-center rounded-xl',
@@ -30,10 +37,23 @@ const alternates = { sk: localePath('sk', paths.sk), en: localePath('en', paths.
       >
         <Icon name={kind === 'sent' ? 'check' : 'close'} size={24} strokeWidth={2.2} />
       </span>
-      <h1 class="m-0 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em]">{copy.title}</h1>
+      <h1
+        class="m-0 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em]"
+      >
+        {copy.title}
+      </h1>
       <p class="m-0 max-w-[520px] text-lg leading-[1.6] text-ink-2">{copy.body}</p>
-      {kind === 'failed' && <a href={`mailto:${company.email}`} class="text-lg font-semibold text-accent-light">{company.email}</a>}
-      <a href={localeHome(locale)} class="inline-flex h-12 items-center gap-2 rounded-[10px] border border-line-2 px-4 text-sm font-semibold">
+      {
+        kind === 'failed' && (
+          <a href={`mailto:${company.email}`} class="text-lg font-semibold text-accent-light">
+            {company.email}
+          </a>
+        )
+      }
+      <a
+        href={localeHome(locale)}
+        class="inline-flex h-12 items-center gap-2 rounded-[10px] border border-line-2 px-4 text-sm font-semibold"
+      >
         {copy.back}
       </a>
     </main>

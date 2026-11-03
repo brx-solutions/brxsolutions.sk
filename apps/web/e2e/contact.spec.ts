@@ -1,6 +1,9 @@
 import { test, expect } from '@playwright/test';
 
-const fill = async (page: import('@playwright/test').Page, message = 'Hello from Playwright, this is a test message.') => {
+const fill = async (
+  page: import('@playwright/test').Page,
+  message = 'Hello from Playwright, this is a test message.',
+) => {
   await page.fill('input[name=name]', 'Playwright');
   await page.fill('input[name=email]', 'pw@example.com');
   await page.selectOption('select[name=type]', 'backend');
@@ -10,7 +13,9 @@ const fill = async (page: import('@playwright/test').Page, message = 'Hello from
 test('submits with JavaScript and shows the inline success message', async ({ page }) => {
   await page.goto('/#kontakt');
   await fill(page);
-  await expect(page.locator('input[name="cf-turnstile-response"]')).not.toHaveValue('', { timeout: 15_000 });
+  await expect(page.locator('input[name="cf-turnstile-response"]')).not.toHaveValue('', {
+    timeout: 15_000,
+  });
   await page.click('[data-contact-form] button[type=submit]');
   await expect(page.locator('[data-form-status]')).toContainText('Ďakujem');
   await expect(page).toHaveURL(/\/#kontakt$/);
@@ -32,6 +37,8 @@ test('native validation blocks a too-short message', async ({ page }) => {
   await fill(page, 'short');
   await page.click('[data-contact-form] button[type=submit]');
   await expect(page).toHaveURL(/\/en\/#kontakt$/);
-  const invalid = await page.locator('textarea[name=message]').evaluate((el) => !(el as HTMLTextAreaElement).validity.valid);
+  const invalid = await page
+    .locator('textarea[name=message]')
+    .evaluate((el) => !(el as HTMLTextAreaElement).validity.valid);
   expect(invalid).toBe(true);
 });

@@ -12,11 +12,17 @@ const app = createApp({
   mail:
     config.mailTransport === 'console'
       ? createConsoleMailer()
-      : createResendMailer({ apiKey: config.resendApiKey!, from: config.contactFrom, to: config.contactTo }),
+      : createResendMailer({
+          apiKey: config.resendApiKey!,
+          from: config.contactFrom,
+          to: config.contactTo,
+        }),
   limiter: createRateLimiter({ limit: 5, windowMs: 60 * 60 * 1000 }),
   config,
 });
 
 serve({ fetch: app.fetch, port: config.port }, (info) => {
-  process.stdout.write(JSON.stringify({ event: 'listening', port: info.port, transport: config.mailTransport }) + '\n');
+  process.stdout.write(
+    JSON.stringify({ event: 'listening', port: info.port, transport: config.mailTransport }) + '\n',
+  );
 });

@@ -13,12 +13,17 @@ const list = (xs: string[]) => xs.map(str);
 ---
 
 <section id="top" class="hero relative overflow-hidden border-b border-line">
-  <div class="mx-auto flex max-w-page flex-wrap items-center gap-16 px-5 pt-20 pb-16 md:px-8 md:pt-[120px] md:pb-[104px]">
+  <div
+    class="mx-auto flex max-w-page flex-wrap items-center gap-16 px-5 pt-20 pb-16 md:px-8 md:pt-[120px] md:pb-[104px]"
+  >
     <div class="flex min-w-0 flex-[1_1_540px] flex-col gap-[30px]">
       <p class="m-0 inline-flex items-center gap-2.5 font-mono text-[13px] text-accent">
         <span aria-hidden="true" class="h-px w-7 bg-accent"></span>{d.hero.eyebrow}
       </p>
-      <h1 class="m-0 font-display text-[clamp(48px,6.2vw,84px)] leading-[0.98] font-bold tracking-[-0.04em] whitespace-pre-line">{d.hero.title}</h1>
+      <h1
+        class="m-0 font-display text-[clamp(48px,6.2vw,84px)] leading-[0.98] font-bold tracking-[-0.04em] whitespace-pre-line"
+        set:text={d.hero.title}
+      />
       <p class="m-0 max-w-[540px] text-xl leading-[1.55] text-ink-2">{d.hero.sub}</p>
       <div class="flex flex-wrap items-center gap-3.5">
         <a
@@ -36,13 +41,17 @@ const list = (xs: string[]) => xs.map(str);
         </a>
       </div>
       <div class="flex items-center gap-2.5 text-sm text-muted">
-        <span aria-hidden="true" class="h-2 w-2 rounded-full bg-accent shadow-[0_0_0_4px_rgba(20,184,166,0.22)]"></span>
+        <span
+          aria-hidden="true"
+          class="h-2 w-2 rounded-full bg-accent shadow-[0_0_0_4px_rgba(20,184,166,0.22)]"></span>
         {d.hero.availability}
       </div>
     </div>
 
     <div class="flex min-w-0 flex-[1_1_400px] justify-center">
-      <div class="w-full max-w-[500px] overflow-hidden rounded-2xl border border-line-2 bg-surface shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
+      <div
+        class="w-full max-w-[500px] overflow-hidden rounded-2xl border border-line-2 bg-surface shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
+      >
         <div class="flex items-center justify-between border-b border-line bg-surface-2 px-4 py-3">
           <div class="flex gap-1.5" aria-hidden="true">
             <span class="h-2.5 w-2.5 rounded-full bg-[#3A4352]"></span>
@@ -61,7 +70,7 @@ const list = (xs: string[]) => xs.map(str);
   stack:   [{list(d.hero.code.stack).map((v, i) => <Fragment>{i > 0 && ', '}<span class="text-accent-light">{v}</span></Fragment>)}],
   since:   <span class="text-pink">{company.since}</span>,
   remote:  <span class="text-sky">{String(d.hero.code.remote)}</span>,
-{"}"};<span class="cursor ml-0.5 inline-block h-[17px] w-2 bg-accent align-[-3px]"></span></pre>
+{"}"};<span class="cursor ml-0.5 inline-block h-[17px] w-2 bg-accent align-[-3px]" /></pre>
       </div>
     </div>
   </div>

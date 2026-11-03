@@ -4,7 +4,10 @@ import { createTurnstileVerifier, TurnstileUnavailable } from '../src/turnstile.
 const stub = (body: unknown, status = 200) =>
   (async (_url: string | URL | Request, init?: RequestInit) => {
     (stub as unknown as { last?: RequestInit }).last = init;
-    return new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
+    return new Response(JSON.stringify(body), {
+      status,
+      headers: { 'content-type': 'application/json' },
+    });
   }) as typeof fetch;
 
 describe('createTurnstileVerifier', () => {
@@ -13,7 +16,10 @@ describe('createTurnstileVerifier', () => {
     await expect(verify('tok', '1.2.3.4')).resolves.toBe(true);
   });
   it('returns false when siteverify reports failure', async () => {
-    const verify = createTurnstileVerifier({ secret: 's', fetchImpl: stub({ success: false, 'error-codes': ['invalid-input-response'] }) });
+    const verify = createTurnstileVerifier({
+      secret: 's',
+      fetchImpl: stub({ success: false, 'error-codes': ['invalid-input-response'] }),
+    });
     await expect(verify('tok', undefined)).resolves.toBe(false);
   });
   it('sends secret, response and remoteip form-encoded', async () => {
@@ -32,7 +38,9 @@ describe('createTurnstileVerifier', () => {
     const fetchImpl = (async () => {
       throw new Error('ECONNRESET');
     }) as typeof fetch;
-    await expect(createTurnstileVerifier({ secret: 's', fetchImpl })('t', undefined)).rejects.toBeInstanceOf(TurnstileUnavailable);
+    await expect(
+      createTurnstileVerifier({ secret: 's', fetchImpl })('t', undefined),
+    ).rejects.toBeInstanceOf(TurnstileUnavailable);
   });
   it('throws TurnstileUnavailable on a non-2xx response', async () => {
     const verify = createTurnstileVerifier({ secret: 's', fetchImpl: stub({}, 503) });
@@ -40,7 +48,9 @@ describe('createTurnstileVerifier', () => {
   });
   it('throws TurnstileUnavailable on timeout', async () => {
     const fetchImpl = ((_u: unknown, init?: RequestInit) =>
-      new Promise<Response>((_, reject) => init?.signal?.addEventListener('abort', () => reject(new Error('aborted'))))) as typeof fetch;
+      new Promise<Response>((_, reject) =>
+        init?.signal?.addEventListener('abort', () => reject(new Error('aborted'))),
+      )) as typeof fetch;
     const verify = createTurnstileVerifier({ secret: 's', fetchImpl, timeoutMs: 10 });
     await expect(verify('t', undefined)).rejects.toBeInstanceOf(TurnstileUnavailable);
   });

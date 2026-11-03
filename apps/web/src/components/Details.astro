@@ -15,7 +15,12 @@ const { moreLabel, lessLabel, class: className } = Astro.props;
   >
     <span class="group-open:hidden">{moreLabel}</span>
     <span class="hidden group-open:inline">{lessLabel}</span>
-    <Icon name="chevron" size={14} strokeWidth={2.2} class="transition-transform group-open:rotate-180" />
+    <Icon
+      name="chevron"
+      size={14}
+      strokeWidth={2.2}
+      class="transition-transform group-open:rotate-180"
+    />
   </summary>
   <div class="pt-4">
     <slot />

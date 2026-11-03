@@ -27,20 +27,27 @@ const links = [
   >
     <a href={localeHome(locale)} class="flex items-center gap-3">
       <Logo />
-      <span class="text-[19px] tracking-[-0.02em]"><span class="font-extrabold">BRX</span> <span class="font-medium">Solutions</span></span>
+      <span class="text-[19px] tracking-[-0.02em]"
+        ><span class="font-extrabold">BRX</span> <span class="font-medium">Solutions</span></span
+      >
     </a>
-
 
     <div
       id="main-nav"
       data-nav
       class="order-4 hidden w-full basis-full flex-col gap-1 pb-4 text-sm font-medium md:order-1 md:flex md:w-auto md:basis-auto md:flex-row md:flex-wrap md:items-center md:gap-7 md:pb-0"
     >
-      {links.map(([id, label]) => <a href={`#${id}`} class="py-2 text-muted md:py-0">{label}</a>)}
+      {
+        links.map(([id, label]) => (
+          <a href={`#${id}`} class="py-2 text-muted md:py-0">
+            {label}
+          </a>
+        ))
+      }
     </div>
 
     <div class="order-2 flex items-center gap-2.5 sm:gap-3.5 md:order-3">
-    <button
+      <button
         type="button"
         class="inline-flex h-11 w-11 items-center justify-center rounded-[10px] border border-line-2 text-ink md:hidden"
         aria-controls="main-nav"
@@ -99,7 +106,9 @@ const links = [
       toggle.querySelector('[data-label-open]')?.classList.toggle('hidden', open);
       toggle.querySelector('[data-label-close]')?.classList.toggle('hidden', !open);
     };
-    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    toggle.addEventListener('click', () =>
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true'),
+    );
     nav.addEventListener('click', (e) => {
       if ((e.target as HTMLElement).closest('a')) setOpen(false);
     });

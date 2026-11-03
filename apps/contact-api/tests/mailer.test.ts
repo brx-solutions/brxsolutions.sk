@@ -1,9 +1,19 @@
 import { describe, it, expect, vi } from 'vitest';
 
 const send = vi.fn();
-vi.mock('resend', () => ({ Resend: class { emails = { send } } }));
+vi.mock('resend', () => ({
+  Resend: class {
+    emails = { send };
+  },
+}));
 
-import { createResendMailer, renderMailText, subjectFor, MailFailed, type ContactMail } from '../src/mailer.js';
+import {
+  createResendMailer,
+  renderMailText,
+  subjectFor,
+  MailFailed,
+  type ContactMail,
+} from '../src/mailer.js';
 
 const mail: ContactMail = {
   input: {
@@ -35,7 +45,9 @@ describe('mailer', () => {
   });
   it('sends through Resend with reply-to set to the sender', async () => {
     send.mockResolvedValueOnce({ data: { id: 'x' }, error: null });
-    await createResendMailer({ apiKey: 'k', from: 'web@brxsolutions.sk', to: 'me@example.com' })(mail);
+    await createResendMailer({ apiKey: 'k', from: 'web@brxsolutions.sk', to: 'me@example.com' })(
+      mail,
+    );
     expect(send).toHaveBeenCalledWith({
       from: 'web@brxsolutions.sk',
       to: ['me@example.com'],

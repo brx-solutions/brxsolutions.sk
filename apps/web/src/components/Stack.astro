@@ -13,9 +13,8 @@ const d = t(locale);
   <p
     slot="aside"
     class="fullstack m-0 max-w-[560px] flex-[1_1_420px] rounded-[14px] border border-accent/30 px-[22px] py-5 text-[15.5px] leading-[1.65] whitespace-pre-line text-[#E3E8EF]"
-  >
-    {d.stack.fullstack}
-  </p>
+    set:text={d.stack.fullstack}
+  />
   <div class="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-4">
     {
       d.stack.groups.map((grp) => (
@@ -29,7 +28,9 @@ const d = t(locale);
           </div>
           <div class="flex flex-wrap gap-2">
             {grp.items.map((it) => (
-              <span class="rounded-[10px] border border-white/10 bg-surface-2 px-3 py-2 text-[13.5px] font-medium text-ink">{it}</span>
+              <span class="rounded-[10px] border border-white/10 bg-surface-2 px-3 py-2 text-[13.5px] font-medium text-ink">
+                {it}
+              </span>
             ))}
           </div>
         </div>
@@ -42,7 +43,6 @@ const d = t(locale);
 <style>
   .fullstack {
     background:
-      linear-gradient(180deg, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.02)),
-      var(--color-bg);
+      linear-gradient(180deg, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.02)), var(--color-bg);
   }
 </style>

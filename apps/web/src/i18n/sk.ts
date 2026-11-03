@@ -25,7 +25,11 @@ export const sk: Dictionary = {
     cta1: 'Prebrať projekt',
     cta2: 'Pozrieť case studies',
     availability: 'Voľná kapacita od [mesiac rok]',
-    code: { focus: ['backend', 'GenAI / RAG', 'data'], stack: ['Python', 'TypeScript', 'GCP'], remote: true },
+    code: {
+      focus: ['backend', 'GenAI / RAG', 'data'],
+      stack: ['Python', 'TypeScript', 'GCP'],
+      remote: true,
+    },
   },
   stats: [
     { value: '9+', label: 'rokov v IT, od 2017' },
@@ -40,7 +44,8 @@ export const sk: Dictionary = {
     featured: {
       title: 'AI agenti, RAG a LLM systémy',
       desc: 'Agenti, ktorí robia skutočnú prácu, nie demo: pripojené k vašim dátam (RAG, hybridné vyhľadávanie), s nástrojmi (MCP, vlastné API), plánom a kanálom k ľuďom (Telegram, Slack, web).',
-      quote: 'Dôraz na to, čo model nesmie robiť: výpočty a pravidlá v kóde, model len tam, kde je jazyk.',
+      quote:
+        'Dôraz na to, čo model nesmie robiť: výpočty a pravidlá v kóde, model len tam, kde je jazyk.',
       tags: ['RAG · pgvector', 'Claude Agent SDK · MCP', 'Gemini · Vertex AI', 'Prompt testy'],
     },
     items: [
@@ -74,25 +79,59 @@ export const sk: Dictionary = {
         name: 'Back-end',
         count: '8 nástrojov',
         bar: '95%',
-        items: ['Python', 'TypeScript', 'Node.js', 'Fastify', 'Flask · FastAPI', 'Next.js', 'PostgreSQL · AlloyDB', 'SQLAlchemy · Zod'],
+        items: [
+          'Python',
+          'TypeScript',
+          'Node.js',
+          'Fastify',
+          'Flask · FastAPI',
+          'Next.js',
+          'PostgreSQL · AlloyDB',
+          'SQLAlchemy · Zod',
+        ],
       },
       {
         name: 'AI & dáta',
         count: '7 nástrojov',
         bar: '88%',
-        items: ['Gemini / Vertex AI', 'Claude Agent SDK · MCP', 'RAG · pgvector', 'Palantir Foundry', 'Netflix Conductor', 'PySpark', 'pandas'],
+        items: [
+          'Gemini / Vertex AI',
+          'Claude Agent SDK · MCP',
+          'RAG · pgvector',
+          'Palantir Foundry',
+          'Netflix Conductor',
+          'PySpark',
+          'pandas',
+        ],
       },
       {
         name: 'Frontend & kvalita',
         count: '8 nástrojov',
         bar: '80%',
-        items: ['React', 'Lit', 'HTMX', 'Tailwind', 'Vitest', 'pytest', 'Playwright', 'OpenTelemetry'],
+        items: [
+          'React',
+          'Lit',
+          'HTMX',
+          'Tailwind',
+          'Vitest',
+          'pytest',
+          'Playwright',
+          'OpenTelemetry',
+        ],
       },
       {
         name: 'Cloud & DevOps',
         count: '7 nástrojov',
         bar: '85%',
-        items: ['GCP Cloud Run', 'Terraform', 'Docker', 'Kubernetes', 'GitHub Actions', 'GitLab CI', 'Cloudflare Zero Trust'],
+        items: [
+          'GCP Cloud Run',
+          'Terraform',
+          'Docker',
+          'Kubernetes',
+          'GitHub Actions',
+          'GitLab CI',
+          'Cloudflare Zero Trust',
+        ],
       },
     ],
   },
@@ -119,10 +158,26 @@ export const sk: Dictionary = {
     eyebrow: 'Ako spolupracujem',
     title: 'Štyri kroky, žiadne prekvapenia',
     steps: [
-      { no: '1', title: 'Úvodný rozhovor', desc: 'Bezplatných 30 minút. Ciele, kontext, obmedzenia.' },
-      { no: '2', title: 'Audit a návrh', desc: 'Pri existujúcom systéme najprv audit. Rozsah, architektúra a cena bez prekvapení.' },
-      { no: '3', title: 'Vývoj v iteráciách', desc: 'Spec pred kódom, TDD, ukážka každé 1–2 týždne. Benchmark starý vs. nový.' },
-      { no: '4', title: 'Nasadenie a odovzdanie', desc: 'Infra cez Terraform, rollback pripravený, runbooky. Voliteľná podpora.' },
+      {
+        no: '1',
+        title: 'Úvodný rozhovor',
+        desc: 'Bezplatných 30 minút. Ciele, kontext, obmedzenia.',
+      },
+      {
+        no: '2',
+        title: 'Audit a návrh',
+        desc: 'Pri existujúcom systéme najprv audit. Rozsah, architektúra a cena bez prekvapení.',
+      },
+      {
+        no: '3',
+        title: 'Vývoj v iteráciách',
+        desc: 'Spec pred kódom, TDD, ukážka každé 1–2 týždne. Benchmark starý vs. nový.',
+      },
+      {
+        no: '4',
+        title: 'Nasadenie a odovzdanie',
+        desc: 'Infra cez Terraform, rollback pripravený, runbooky. Voliteľná podpora.',
+      },
     ],
   },
   strengths: {
@@ -130,14 +185,38 @@ export const sk: Dictionary = {
     title: 'Čo odo mňa dostanete',
     sub: 'Pozorované na reálnych projektoch, nie z náborového inzerátu.',
     items: [
-      { title: 'Prevezmem cudzí legacy systém', desc: 'Audit, plán, prepis – s ledgerom, čo a prečo odišlo.' },
-      { title: 'Ladím výkon RAG pipeline merateľne', desc: 'Sériové LLM volania, candidate explosion, zbytočné RPC – opravené po krokoch s číslami.' },
-      { title: 'Foundry + GCP + LLM pod jednou strechou', desc: 'Od zdrojového API po publikovaný článok, bez odovzdávania.' },
-      { title: 'Integrácie medzi tímami', desc: 'Vyjednám kontrakt, nájdem a zdokumentujem permission blocker.' },
-      { title: 'Disciplína v procese', desc: 'TDD, spec pred kódom, runbooky, infra len cez Terraform.' },
-      { title: 'Produkčná opatrnosť', desc: 'Image swap namiesto :latest, rollback digest, migrácie najprv na dev.' },
-      { title: 'Zrozumiteľne pre stakeholderov', desc: 'Technickú pipeline vysvetlím netechnicky – roky Scrum mastera.' },
-      { title: 'AI-asistovaný vývoj ako služba', desc: 'Rýchlosť bez straty kvality – a viem to nastaviť aj vášmu tímu.' },
+      {
+        title: 'Prevezmem cudzí legacy systém',
+        desc: 'Audit, plán, prepis – s ledgerom, čo a prečo odišlo.',
+      },
+      {
+        title: 'Ladím výkon RAG pipeline merateľne',
+        desc: 'Sériové LLM volania, candidate explosion, zbytočné RPC – opravené po krokoch s číslami.',
+      },
+      {
+        title: 'Foundry + GCP + LLM pod jednou strechou',
+        desc: 'Od zdrojového API po publikovaný článok, bez odovzdávania.',
+      },
+      {
+        title: 'Integrácie medzi tímami',
+        desc: 'Vyjednám kontrakt, nájdem a zdokumentujem permission blocker.',
+      },
+      {
+        title: 'Disciplína v procese',
+        desc: 'TDD, spec pred kódom, runbooky, infra len cez Terraform.',
+      },
+      {
+        title: 'Produkčná opatrnosť',
+        desc: 'Image swap namiesto :latest, rollback digest, migrácie najprv na dev.',
+      },
+      {
+        title: 'Zrozumiteľne pre stakeholderov',
+        desc: 'Technickú pipeline vysvetlím netechnicky – roky Scrum mastera.',
+      },
+      {
+        title: 'AI-asistovaný vývoj ako služba',
+        desc: 'Rýchlosť bez straty kvality – a viem to nastaviť aj vášmu tímu.',
+      },
     ],
   },
   contact: {
@@ -177,7 +256,8 @@ export const sk: Dictionary = {
     back: 'Späť na úvod',
   },
   footer: {
-    built: 'Tento web som navrhol, postavil a nasadil sám – DNS, Cloudflare, hosting, s pomocou AI agentov. Rovnako pracujem na projektoch pre klientov.',
+    built:
+      'Tento web som navrhol, postavil a nasadil sám – DNS, Cloudflare, hosting, s pomocou AI agentov. Rovnako pracujem na projektoch pre klientov.',
     rights: 'Všetky práva vyhradené.',
   },
 };

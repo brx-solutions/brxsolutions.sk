@@ -13,11 +13,21 @@ interface Props {
 const { locale } = Astro.props;
 const d = t(locale);
 const items = await Promise.all(
-  (await localized('own', locale)).map(async (entry) => ({ entry, Content: (await render(entry)).Content })),
+  (await localized('own', locale)).map(async (entry) => ({
+    entry,
+    Content: (await render(entry)).Content,
+  })),
 );
 ---
 
-<Section id={anchors.own} no="05" eyebrow={d.own.eyebrow} title={d.own.title} sub={d.own.sub} subMax="max-w-[440px]">
+<Section
+  id={anchors.own}
+  no="05"
+  eyebrow={d.own.eyebrow}
+  title={d.own.title}
+  sub={d.own.sub}
+  subMax="max-w-[440px]"
+>
   <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
     {
       items.map(({ entry: { data: o }, Content }) => (
@@ -28,7 +38,9 @@ const items = await Promise.all(
             </span>
             <span class="font-mono text-xs text-accent-light">{o.status}</span>
           </div>
-          <h3 class="m-0 font-display text-[21px] leading-[1.25] font-semibold tracking-[-0.02em]">{o.title}</h3>
+          <h3 class="m-0 font-display text-[21px] leading-[1.25] font-semibold tracking-[-0.02em]">
+            {o.title}
+          </h3>
           <div class="prose-body text-[15px] leading-[1.6] text-muted">
             <Content />
           </div>
@@ -38,7 +50,9 @@ const items = await Promise.all(
             ))}
           </div>
           <Details moreLabel={d.own.more} lessLabel={d.own.less} class="mt-auto">
-            <p class="m-0 rounded-xl border border-line bg-bg p-4 text-sm leading-[1.6] text-ink-2">{o.tech}</p>
+            <p class="m-0 rounded-xl border border-line bg-bg p-4 text-sm leading-[1.6] text-ink-2">
+              {o.tech}
+            </p>
           </Details>
         </article>
       ))

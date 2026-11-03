@@ -6,7 +6,9 @@ import { company } from '../../src/config/company';
 describe('Hero', () => {
   it('renders the title with preserved line breaks and both CTAs', async () => {
     const html = await renderToHtml(Hero, { locale: 'en' });
-    expect(html).toMatch(/<h1[^>]*whitespace-pre-line[^>]*>Back-end and AI\nthat run\nin production\.<\/h1>/);
+    expect(html).toMatch(
+      /<h1[^>]*whitespace-pre-line[^>]*>Back-end and AI\nthat run\nin production\.<\/h1>/,
+    );
     expect(html).toContain('href="#kontakt"');
     expect(html).toContain('href="#projekty"');
   });

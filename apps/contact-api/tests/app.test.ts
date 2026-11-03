@@ -107,7 +107,11 @@ describe('POST /api/contact', () => {
     const post = () =>
       app.request('/api/contact', {
         method: 'POST',
-        headers: { 'content-type': 'application/json', origin: ORIGIN, 'cf-connecting-ip': '5.5.5.5' },
+        headers: {
+          'content-type': 'application/json',
+          origin: ORIGIN,
+          'cf-connecting-ip': '5.5.5.5',
+        },
         body: JSON.stringify(valid),
       });
     for (let i = 0; i < 5; i++) expect((await post()).status).toBe(200);
@@ -135,7 +139,9 @@ describe('POST /api/contact', () => {
     deps.verify = vi.fn(async () => false);
     const res = await json(valid);
     expect(res.status).toBe(400);
-    expect(((await res.json()) as { errors: Record<string, string> }).errors).toHaveProperty('turnstile');
+    expect(((await res.json()) as { errors: Record<string, string> }).errors).toHaveProperty(
+      'turnstile',
+    );
     expect(mail).not.toHaveBeenCalled();
   });
 

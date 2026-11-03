@@ -6,7 +6,10 @@ import { schemas } from '../src/content/schemas';
 
 const ROOT = 'src/content';
 const collections = ['experience', 'projects', 'own', 'legal'] as const;
-const files = (dir: string) => readdirSync(dir).filter((f) => f.endsWith('.md')).sort();
+const files = (dir: string) =>
+  readdirSync(dir)
+    .filter((f) => f.endsWith('.md'))
+    .sort();
 
 function findPlaceholders(...dirs: string[]): { file: string; line: number; text: string }[] {
   const out: { file: string; line: number; text: string }[] = [];
@@ -18,7 +21,8 @@ function findPlaceholders(...dirs: string[]): { file: string; line: number; text
         readFileSync(full, 'utf8')
           .split('\n')
           .forEach((text, i) => {
-            if (/(^|[\s'"(])\[[A-Za-zÀ-ž0-9+][^\]\n]*\](?!\()/.test(text)) out.push({ file: full, line: i + 1, text: text.trim() });
+            if (/(^|[\s'"(])\[[A-Za-zÀ-ž0-9+][^\]\n]*\](?!\()/.test(text))
+              out.push({ file: full, line: i + 1, text: text.trim() });
           });
       }
     }
@@ -59,7 +63,12 @@ describe.each(collections)('content/%s', (collection) => {
 describe('placeholders', () => {
   it('reports [placeholders] left in content (warning only)', () => {
     const found = findPlaceholders(ROOT, 'src/i18n', 'src/config');
-    if (found.length) process.stderr.write('Unfilled placeholders:\n' + found.map((f) => `${f.file}:${f.line}: ${f.text}`).join('\n') + '\n');
+    if (found.length)
+      process.stderr.write(
+        'Unfilled placeholders:\n' +
+          found.map((f) => `${f.file}:${f.line}: ${f.text}`).join('\n') +
+          '\n',
+      );
     expect(Array.isArray(found)).toBe(true);
   });
 });

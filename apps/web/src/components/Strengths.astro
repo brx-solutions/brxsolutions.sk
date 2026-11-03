@@ -13,10 +13,16 @@ const d = t(locale);
   <div class="mx-auto flex max-w-page flex-wrap gap-10 px-5 py-16 md:gap-16 md:px-8 md:py-[104px]">
     <div class="flex flex-[0_1_360px] flex-col gap-4">
       <p class="m-0 font-mono text-[13px] text-accent">07 / {d.strengths.eyebrow}</p>
-      <h2 class="m-0 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em]">{d.strengths.title}</h2>
+      <h2
+        class="m-0 font-display text-[clamp(34px,3.8vw,52px)] leading-[1.05] font-bold tracking-[-0.035em]"
+      >
+        {d.strengths.title}
+      </h2>
       <p class="m-0 text-base leading-[1.6] text-muted">{d.strengths.sub}</p>
     </div>
-    <ul class="m-0 grid min-w-0 flex-[1_1_560px] list-none grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-x-8 gap-y-3.5 p-0">
+    <ul
+      class="m-0 grid min-w-0 flex-[1_1_560px] list-none grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-x-8 gap-y-3.5 p-0"
+    >
       {
         d.strengths.items.map((st) => (
           <li class="grid grid-cols-[22px_1fr] gap-3 border-b border-line py-3.5">

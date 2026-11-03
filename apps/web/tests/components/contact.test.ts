@@ -8,8 +8,18 @@ describe('Contact', () => {
     const html = await renderToHtml(Contact, { locale: 'sk' });
     expect(html).toContain('id="kontakt"');
     expect(html).toContain(`href="mailto:${company.email}"`);
-    expect(html).toMatch(/<form[^>]*method="post"[^>]*action="\/api\/contact"[^>]*data-contact-form/);
-    for (const name of ['name', 'email', 'type', 'message', 'website', 'lang', 'cf-turnstile-response']) {
+    expect(html).toMatch(
+      /<form[^>]*method="post"[^>]*action="\/api\/contact"[^>]*data-contact-form/,
+    );
+    for (const name of [
+      'name',
+      'email',
+      'type',
+      'message',
+      'website',
+      'lang',
+      'cf-turnstile-response',
+    ]) {
       expect(html, name).toMatch(new RegExp(`name="${name}"`));
     }
     expect(html).toMatch(/<input[^>]*name="lang"[^>]*value="sk"/);

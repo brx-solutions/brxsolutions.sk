@@ -18,7 +18,10 @@ const social =
   <div class="mx-auto flex max-w-page flex-wrap gap-10 px-5 py-16 md:gap-16 md:px-8 md:py-[104px]">
     <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-6">
       <p class="m-0 font-mono text-[13px] text-accent">08 / {d.nav.contact}</p>
-      <h2 class="m-0 font-display text-[clamp(40px,4.8vw,66px)] leading-none font-bold tracking-[-0.04em] whitespace-pre-line">{d.contact.title}</h2>
+      <h2
+        class="m-0 font-display text-[clamp(40px,4.8vw,66px)] leading-none font-bold tracking-[-0.04em] whitespace-pre-line"
+        set:text={d.contact.title}
+      />
       <p class="m-0 max-w-[460px] text-[17px] leading-[1.6] text-ink-2">{d.contact.sub}</p>
       <div class="mt-2 flex flex-col gap-3.5">
         <a href={`mailto:${company.email}`} class={link}>

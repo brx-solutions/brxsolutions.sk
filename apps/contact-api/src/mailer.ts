@@ -52,8 +52,12 @@ export function createResendMailer(opts: { apiKey: string; from: string; to: str
   };
 }
 
-export function createConsoleMailer(log: (line: string) => void = (l) => process.stdout.write(l + '\n')): Mailer {
+export function createConsoleMailer(
+  log: (line: string) => void = (l) => process.stdout.write(l + '\n'),
+): Mailer {
   return async (mail) => {
-    log(`--- contact mail (console transport) ---\nSubject: ${subjectFor(mail)}\n${renderMailText(mail)}---`);
+    log(
+      `--- contact mail (console transport) ---\nSubject: ${subjectFor(mail)}\n${renderMailText(mail)}---`,
+    );
   };
 }

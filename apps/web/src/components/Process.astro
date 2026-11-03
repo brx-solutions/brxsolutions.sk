@@ -9,12 +9,20 @@ const { locale } = Astro.props;
 const d = t(locale);
 ---
 
-<Section no="06" eyebrow={d.process.eyebrow} title={d.process.title} tone="surface" label={d.process.title}>
+<Section
+  no="06"
+  eyebrow={d.process.eyebrow}
+  title={d.process.title}
+  tone="surface"
+  label={d.process.title}
+>
   <ol class="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-4 p-0">
     {
       d.process.steps.map((step) => (
         <li class="flex flex-col gap-3.5 rounded-2xl border border-white/10 bg-bg p-[26px]">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent font-display text-base font-bold text-bg">{step.no}</span>
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent font-display text-base font-bold text-bg">
+            {step.no}
+          </span>
           <h3 class="m-0 font-display text-[19px] leading-[1.2] font-semibold">{step.title}</h3>
           <p class="m-0 text-[14.5px] leading-[1.6] text-muted">{step.desc}</p>
         </li>

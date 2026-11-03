@@ -7,7 +7,9 @@ test('language switch keeps the section hash on the home page', async ({ page })
   await expect(page.locator('html')).toHaveAttribute('lang', 'sk');
 });
 
-test('language switch on the privacy page goes to the other locale privacy page', async ({ page }) => {
+test('language switch on the privacy page goes to the other locale privacy page', async ({
+  page,
+}) => {
   await page.goto('/en/privacy/');
   await page.locator('[data-lang-switch][hreflang="sk"]').click();
   await expect(page).toHaveURL(/\/ochrana-osobnych-udajov\/$/);

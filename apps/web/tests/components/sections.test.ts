@@ -74,7 +74,7 @@ describe('Process and Strengths', () => {
   it('renders four numbered steps', async () => {
     const html = await renderToHtml(Process, { locale: 'sk' });
     expect(count(html, /<li/g)).toBe(4);
-    for (const n of ['1', '2', '3', '4']) expect(html).toContain(`>${n}</span>`);
+    for (const n of ['1', '2', '3', '4']) expect(html).toMatch(new RegExp(`>\\s*${n}\\s*</span>`));
   });
   it('renders eight strengths', async () => {
     const html = await renderToHtml(Strengths, { locale: 'sk' });

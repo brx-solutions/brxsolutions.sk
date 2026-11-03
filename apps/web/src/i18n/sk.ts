@@ -67,6 +67,12 @@ export const sk: Dictionary = {
         desc: 'Prevezmem cudzí zastaraný systém: audit, plán, migrácia bez výpadku, ledger zmien.',
         tags: ['Migrácie SDK', 'Rollback', 'Terraform'],
       },
+      {
+        icon: 'web',
+        title: 'Weby a webové aplikácie',
+        desc: 'Od informatívneho one-page webu, ako je tento, po webovú aplikáciu s prihlasovaním, databázou a API. Rýchle, prístupné, s testami a nasadením.',
+        tags: ['Next.js · React', 'Tailwind', 'Cloudflare · Vercel'],
+      },
     ],
   },
   stack: {

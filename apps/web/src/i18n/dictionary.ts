@@ -1,4 +1,4 @@
-export type IconName = 'api' | 'data' | 'legacy' | 'bot' | 'invoice' | 'home';
+export type IconName = 'api' | 'data' | 'legacy' | 'web' | 'bot' | 'invoice' | 'home';
 export type ProjectType = 'ai' | 'backend' | 'audit' | 'cv';
 
 export interface Dictionary {

@@ -16,8 +16,10 @@ describe('Services', () => {
     expect(html).toContain('id="sluzby"');
     expect(html).toContain('hlavná špecializácia');
     expect(html).toMatch(/<article[^>]*col-span-2/);
-    expect(count(html, /<article/g)).toBe(4);
+    expect(count(html, /<article/g)).toBe(5);
     expect(html).toContain('RAG · pgvector');
+    expect(html).toContain('Weby a webové aplikácie');
+    expect(html).toContain('Cloudflare · Vercel');
     expect(html).toContain('Fastify · Flask');
   });
 });

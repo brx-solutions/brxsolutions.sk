@@ -1,6 +1,6 @@
 import { z } from 'astro/zod';
 
-export const iconNames = ['api', 'data', 'legacy', 'bot', 'invoice', 'home'] as const;
+export const iconNames = ['api', 'data', 'legacy', 'web', 'bot', 'invoice', 'home'] as const;
 
 export const experienceSchema = z.object({
   period: z.string(),

@@ -67,6 +67,12 @@ export const en: Dictionary = {
         desc: 'I take over an ageing system: audit, plan, zero-downtime migration, a ledger of changes.',
         tags: ['SDK migrations', 'Rollback', 'Terraform'],
       },
+      {
+        icon: 'web',
+        title: 'Websites & web applications',
+        desc: 'From an informational one-page site like this one to a web application with login, database and API. Fast, accessible, with tests and deployment.',
+        tags: ['Next.js · React', 'Tailwind', 'Cloudflare · Vercel'],
+      },
     ],
   },
   stack: {

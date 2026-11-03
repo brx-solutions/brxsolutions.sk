@@ -14,4 +14,8 @@ code=$(curl -s -o /dev/null -w '%{http_code}' -X POST "localhost:$PORT/api/conta
 curl -fsS "localhost:$PORT/sitemap-index.xml" >/dev/null || fail "sitemap missing"
 # The CSP has no 'unsafe-inline' for styles, so inline style attributes would be silently dropped.
 grep -q 'style="' <<<"$(curl -fsS "localhost:$PORT/")$(curl -fsS "localhost:$PORT/en/")" && fail "inline style attribute found in HTML"
+# www must redirect to the apex, keeping path and query.
+www=$(curl -sI -H 'Host: www.brxsolutions.sk' "localhost:$PORT/en/?x=1")
+grep -q '^HTTP/1.1 308' <<<"$www" || fail "www redirect: expected 308"
+grep -qi '^Location: https://brxsolutions.sk/en/?x=1' <<<"$www" || fail "www redirect: wrong Location"
 echo "smoke: OK"

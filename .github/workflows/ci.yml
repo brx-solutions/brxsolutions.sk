@@ -20,6 +20,8 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Use the example env (test Turnstile key, no analytics)
+        run: cp apps/web/.env.example apps/web/.env
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm --filter web build

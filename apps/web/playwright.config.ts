@@ -9,7 +9,6 @@ process.env.PUBLIC_TURNSTILE_SITE_KEY = '1x00000000000000000000AA';
 
 export default defineConfig({
   testDir: 'e2e',
-  globalSetup: './e2e/global-setup.ts',
   fullyParallel: true,
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? 'github' : 'list',
@@ -26,7 +25,10 @@ export default defineConfig({
   ],
   webServer: [
     {
-      command: `node node_modules/astro/bin/astro.mjs preview --port ${PORT} --ignore-lock`,
+      // Build inside the server command: Playwright starts web servers before globalSetup
+      // runs, so a build there would come too late on a clean checkout. --ignore-lock keeps
+      // astro 7 preview in the foreground (it daemonizes when it detects an agent).
+      command: `node node_modules/astro/bin/astro.mjs build && node node_modules/astro/bin/astro.mjs preview --port ${PORT} --ignore-lock`,
       url: `http://localhost:${PORT}/`,
       reuseExistingServer: false,
       timeout: 120_000,

@@ -42,8 +42,19 @@ and point the site at it with `PUBLIC_CONTACT_ENDPOINT=http://localhost:3777/api
 | `pnpm lint` / `pnpm format`  | Prettier                                                      |
 | `infra/smoke.sh`             | builds the Docker stack and checks it through Caddy           |
 
-Visual baselines live in `apps/web/e2e/visual.spec.ts-snapshots/`. After an intentional
-design change run `pnpm --filter web e2e --update-snapshots` and commit the PNGs.
+Visual baselines live in `apps/web/e2e/visual.spec.ts-snapshots/`, one set per platform
+(`-darwin` for local runs, `-linux` for CI). After an intentional design change refresh both:
+
+```bash
+pnpm --filter web e2e --update-snapshots                       # darwin
+docker run --rm -v "$PWD":/src:ro -v "$PWD/apps/web/e2e/visual.spec.ts-snapshots":/snap node:24 \
+  bash -c 'cp -r /src /w && cd /w && rm -rf node_modules apps/*/node_modules apps/web/dist apps/web/.astro \
+  && corepack enable && pnpm install --frozen-lockfile && cp apps/web/.env.example apps/web/.env \
+  && cd apps/web && pnpm exec playwright install --with-deps chromium \
+  && pnpm e2e --update-snapshots; cp e2e/visual.spec.ts-snapshots/*-linux.png /snap/'   # linux
+```
+
+and commit the PNGs.
 
 ## Editing content
 

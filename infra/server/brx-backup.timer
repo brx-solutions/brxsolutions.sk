@@ -1,0 +1,10 @@
+[Unit]
+Description=Nightly Umami backup at 03:15 UTC
+
+[Timer]
+OnCalendar=*-*-* 03:15:00 UTC
+Persistent=true
+Unit=brx-backup.service
+
+[Install]
+WantedBy=timers.target

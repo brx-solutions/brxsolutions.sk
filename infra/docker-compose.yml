@@ -1,0 +1,30 @@
+# Local stack: Caddy (static site + /api proxy) and the contact API.
+# The production plan adds cloudflared, umami and umami-db and drops the published port.
+services:
+  web:
+    image: ghcr.io/brxsolutions/web:${IMAGE_TAG:-dev}
+    build:
+      context: ..
+      dockerfile: apps/web/Dockerfile
+      args:
+        PUBLIC_TURNSTILE_SITE_KEY: ${PUBLIC_TURNSTILE_SITE_KEY:-}
+        PUBLIC_UMAMI_SRC: ${PUBLIC_UMAMI_SRC:-}
+        PUBLIC_UMAMI_WEBSITE_ID: ${PUBLIC_UMAMI_WEBSITE_ID:-}
+    environment:
+      STATS_ORIGIN: ${STATS_ORIGIN:-}
+    ports:
+      - '8080:80'
+    depends_on:
+      contact-api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  contact-api:
+    image: ghcr.io/brxsolutions/contact-api:${IMAGE_TAG:-dev}
+    build:
+      context: ..
+      dockerfile: apps/contact-api/Dockerfile
+    env_file: .env
+    environment:
+      PORT: 3000
+    restart: unless-stopped

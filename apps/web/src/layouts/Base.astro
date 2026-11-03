@@ -20,7 +20,7 @@ const jsonLd = JSON.stringify({
   name: company.name,
   url: company.siteUrl,
   email: company.email,
-  address: { '@type': 'PostalAddress', addressLocality: 'Žilina', addressCountry: 'SK' },
+  address: { '@type': 'PostalAddress', addressLocality: company.city, addressCountry: 'SK' },
 });
 ---
 

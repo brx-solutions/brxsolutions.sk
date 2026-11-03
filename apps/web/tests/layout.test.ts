@@ -11,6 +11,7 @@ describe('Base layout', () => {
     expect(html).toContain('hreflang="sk" href="https://brxsolutions.sk/"');
     expect(html).toContain('hreflang="en" href="https://brxsolutions.sk/en/"');
     expect(html).toContain('"@type":"Organization"');
+    expect(html).toContain('"addressLocality":"Bytča"');
     expect(html).toContain('<main>x</main>');
   });
 

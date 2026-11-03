@@ -5,7 +5,7 @@ updated: '2026-11-03'
 
 ## Controller
 
-The controller of your personal data is **BRX Solutions s.r.o.**, company ID [00000000], registered seat Žilina, Slovakia, entered in [Obchodný register OS Žilina, oddiel Sro, vložka 00000/L] (the "controller"). Contact: the e-mail address in the footer of this site.
+The controller of your personal data is **BRX Solutions s.r.o.**, company ID [00000000], registered seat Bytča, Slovakia, entered in [Obchodný register OS Žilina, oddiel Sro, vložka 00000/L] (the "controller"). Contact: the e-mail address in the footer of this site.
 
 ## What we process and why
 

@@ -125,10 +125,10 @@ export const en: Dictionary = {
       },
       {
         name: 'Cloud & DevOps',
-        count: '7 tools',
         bar: '85%',
         items: [
           'GCP Cloud Run',
+          'AWS',
           'Terraform',
           'Docker',
           'Kubernetes',

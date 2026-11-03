@@ -3,8 +3,8 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 PORT="${SMOKE_PORT:-8080}"
-docker compose up -d --build --wait
-fail() { echo "smoke: $1" >&2; docker compose logs --tail=40; exit 1; }
+docker compose -f docker-compose.yml -f compose.local.yml up -d --build --wait
+fail() { echo "smoke: $1" >&2; docker compose -f docker-compose.yml -f compose.local.yml logs --tail=40; exit 1; }
 # Bodies go through variables: `curl | grep -q` trips pipefail when grep exits early.
 grep -q 'lang="sk"' <<<"$(curl -fsS "localhost:$PORT/")" || fail "sk home not served"
 grep -q 'lang="en"' <<<"$(curl -fsS "localhost:$PORT/en/")" || fail "en home not served"

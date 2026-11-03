@@ -1,0 +1,5 @@
+# Local override: expose Caddy on http://localhost:8080.
+services:
+  web:
+    ports:
+      - '8080:80'

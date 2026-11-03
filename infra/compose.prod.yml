@@ -1,0 +1,50 @@
+# Production override for the brx-web LXC: Cloudflare Tunnel, Umami analytics, Postgres.
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:2026.10.7
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
+    mem_limit: 64m
+    depends_on:
+      - web
+      - umami
+    restart: unless-stopped
+
+  umami:
+    image: ghcr.io/umami-software/umami:3.4.1
+    environment:
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD}@umami-db:5432/umami
+      APP_SECRET: ${UMAMI_APP_SECRET}
+      DISABLE_TELEMETRY: '1'
+      CLIENT_IP_HEADER: CF-Connecting-IP
+      TZ: UTC
+    mem_limit: 512m
+    depends_on:
+      umami-db:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:3000/api/heartbeat >/dev/null || exit 1']
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    restart: unless-stopped
+
+  umami-db:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${UMAMI_DB_PASSWORD}
+      POSTGRES_DB: umami
+      TZ: UTC
+    volumes:
+      - umami-db-data:/var/lib/postgresql
+    mem_limit: 384m
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U umami -d umami']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  umami-db-data:

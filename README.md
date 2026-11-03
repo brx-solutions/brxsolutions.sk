@@ -83,7 +83,7 @@ share an `order`, or if the frontmatter does not match the schema in
 cd infra
 cp .env.example .env        # local defaults: console mail, Turnstile test secret
 ./smoke.sh                  # builds both images, starts the stack on :8080, checks it
-docker compose down
+docker compose -f docker-compose.yml -f compose.local.yml down
 ```
 
 Production images are tagged with the git sha (`ghcr.io/brx-solutions/web:<sha>`,

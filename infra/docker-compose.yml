@@ -1,5 +1,6 @@
-# Local stack: Caddy (static site + /api proxy) and the contact API.
-# The production plan adds cloudflared, umami and umami-db and drops the published port.
+# Base stack: Caddy (static site + /api proxy) and the contact API. No published ports here.
+# Local:      docker compose -f docker-compose.yml -f compose.local.yml up
+# Production: docker compose -f docker-compose.yml -f compose.prod.yml up -d
 services:
   web:
     image: ghcr.io/brx-solutions/web:${IMAGE_TAG:-dev}
@@ -12,8 +13,7 @@ services:
         PUBLIC_UMAMI_WEBSITE_ID: ${PUBLIC_UMAMI_WEBSITE_ID:-}
     environment:
       STATS_ORIGIN: ${STATS_ORIGIN:-}
-    ports:
-      - '8080:80'
+    mem_limit: 128m
     depends_on:
       contact-api:
         condition: service_healthy
@@ -27,4 +27,5 @@ services:
     env_file: .env
     environment:
       PORT: 3000
+    mem_limit: 192m
     restart: unless-stopped

@@ -1,5 +1,5 @@
 ---
-period: '2022 – [2025]'
+period: '2022 – 2025'
 role: 'Software Engineer (Python back-end)'
 client: 'FRINX / Elisa Polystar Slovakia · remote'
 tags: ['Python', 'Conductor', 'PostgreSQL', 'Kubernetes']

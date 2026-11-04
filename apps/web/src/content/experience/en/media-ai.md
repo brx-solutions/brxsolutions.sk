@@ -1,5 +1,5 @@
 ---
-period: '[2025] – now'
+period: '2025 – now'
 role: 'Back-end developer (Python, TypeScript)'
 client: 'Swiss media group · AI team · remote'
 tags: ['Python', 'TypeScript', 'Next.js', 'GCP', 'Foundry']

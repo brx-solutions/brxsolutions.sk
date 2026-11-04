@@ -61,6 +61,19 @@ describe.each(collections)('content/%s', (collection) => {
 });
 
 describe('placeholders', () => {
+  it('experience periods carry real dates (matching LinkedIn), no [placeholder]', () => {
+    const found = findPlaceholders('src/content/experience');
+    expect(found).toEqual([]);
+    for (const locale of ['sk', 'en']) {
+      const dir = join('src/content/experience', locale);
+      const frinx = readFileSync(join(dir, 'frinx.md'), 'utf8');
+      const media = readFileSync(join(dir, 'media-ai.md'), 'utf8');
+      // Years only, like the other entries; LinkedIn has 11/2022 – 2/2025 and 2/2025 – now.
+      expect(frinx).toContain("period: '2022 – 2025'");
+      expect(media).toMatch(/period: '2025 – (now|teraz)'/);
+    }
+  });
+
   it('reports [placeholders] left in content (warning only)', () => {
     const found = findPlaceholders(ROOT, 'src/i18n', 'src/config');
     if (found.length)

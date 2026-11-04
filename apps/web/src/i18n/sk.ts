@@ -4,7 +4,7 @@ export const sk: Dictionary = {
   meta: {
     title: 'BRX Solutions – back-end a AI inžinier, Žilina',
     description:
-      'Python a TypeScript inžinier s 9 rokmi v IT. RAG systémy, LLM pipeline a back-end pre firmy, ktoré potrebujú jedného človeka od návrhu po prevádzku.',
+      'Python a TypeScript inžinier s 9 rokmi v IT. RAG systémy, LLM pipeline a back-end – ako kontraktor vo vašom tíme alebo na projekt od návrhu po prevádzku.',
   },
   nav: {
     services: 'Služby',
@@ -21,8 +21,8 @@ export const sk: Dictionary = {
   hero: {
     eyebrow: 'back-end & AI engineer · Žilina · remote',
     title: 'Back-end a AI,\nktoré bežia\nv produkcii.',
-    sub: 'Python a TypeScript inžinier s 9 rokmi v IT. Staviam RAG systémy, LLM pipeline a back-end pre firmy, ktoré potrebujú jedného človeka od návrhu po prevádzku.',
-    cta1: 'Prebrať projekt',
+    sub: 'Python a TypeScript inžinier s 9 rokmi v IT. Staviam RAG systémy, LLM pipeline a back-end. Najčastejšie ako kontraktor priamo vo vašom tíme, dlhodobo a remote. Projekt na kľúč tiež.',
+    cta1: 'Dohodnúť rozhovor',
     cta2: 'Pozrieť case studies',
     availability: 'Voľná kapacita od 12/2026',
     code: {
@@ -160,7 +160,19 @@ export const sk: Dictionary = {
   },
   process: {
     eyebrow: 'Ako spolupracujem',
-    title: 'Štyri kroky, žiadne prekvapenia',
+    title: 'Dve formy spolupráce',
+    modes: [
+      {
+        title: 'Kontraktor v tíme',
+        badge: 'preferujem',
+        desc: 'Člen vášho tímu na vašich úlohách, s vašimi procesmi a nástrojmi. Dlhodobo, 3+ mesiace, full-time alebo part-time, remote. Fakturácia cez s.r.o. mesačne. Takto pracujem dnes.',
+      },
+      {
+        title: 'Projekt na kľúč',
+        desc: 'Pevný rozsah od auditu po odovzdanie – nový systém, modernizácia, web. Štyri kroky nižšie, žiadne prekvapenia.',
+      },
+    ],
+    stepsTitle: 'Projekt na kľúč v štyroch krokoch',
     steps: [
       {
         no: '1',
@@ -214,6 +226,14 @@ export const sk: Dictionary = {
         desc: 'Image swap namiesto :latest, rollback digest, migrácie najprv na dev.',
       },
       {
+        title: 'Zapadnem do existujúceho tímu',
+        desc: 'Cudzí codebase, code review, standupy, Scrum – od prvého týždňa prispievam, nie len čítam.',
+      },
+      {
+        title: 'Web od návrhu po nasadenie',
+        desc: 'Informatívny web alebo webová aplikácia s prihlásením a API – rýchly, prístupný, s testami, CI a hostingom. Tento web je ukážka.',
+      },
+      {
         title: 'Zrozumiteľne pre stakeholderov',
         desc: 'Technickú pipeline vysvetlím netechnicky – roky Scrum mastera.',
       },
@@ -224,14 +244,15 @@ export const sk: Dictionary = {
     ],
   },
   contact: {
-    title: 'Máte nápad?\nPoďme ho postaviť.',
-    sub: 'Napíšte mi pár viet o projekte. Do 24 hodín sa ozvem s návrhom ďalšieho kroku.',
+    title: 'Hľadáte posilu do tímu\nalebo človeka na projekt?',
+    sub: 'Napíšte mi pár viet o tíme alebo projekte. Do 24 hodín sa ozvem s návrhom ďalšieho kroku.',
     emailLabel: 'Alebo priamo e-mailom',
     form: {
       name: 'Meno',
       email: 'E-mail',
       type: 'Typ projektu',
       options: {
+        team: 'Posilnenie tímu / kontraktor',
         ai: 'AI agenti / RAG / LLM',
         backend: 'Back-end, API alebo dátová pipeline',
         web: 'Web alebo webová aplikácia',
@@ -239,7 +260,7 @@ export const sk: Dictionary = {
         cv: 'Žiadosť o CV',
       },
       message: 'Správa',
-      messagePlaceholder: 'Pár viet o projekte, cieľoch a termíne.',
+      messagePlaceholder: 'Pár viet o tíme alebo projekte, cieľoch a termíne.',
       cvPlaceholder: 'Prosím o zaslanie CV. Kontext: …',
       submit: 'Odoslať správu',
       sending: 'Odosielam…',

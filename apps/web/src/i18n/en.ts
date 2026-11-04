@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: 'BRX Solutions – back-end & AI engineer, Žilina',
     description:
-      'Python and TypeScript engineer with 9 years in IT. RAG systems, LLM pipelines and back-ends for companies that need one person from design to operations.',
+      'Python and TypeScript engineer with 9 years in IT. RAG systems, LLM pipelines and back-ends – as a contractor in your team or on a project from design to operations.',
   },
   nav: {
     services: 'Services',
@@ -21,8 +21,8 @@ export const en: Dictionary = {
   hero: {
     eyebrow: 'back-end & AI engineer · Žilina · remote',
     title: 'Back-end and AI\nthat run\nin production.',
-    sub: 'Python and TypeScript engineer with 9 years in IT. I build RAG systems, LLM pipelines and back-ends for companies that need one person from design to operations.',
-    cta1: 'Discuss a project',
+    sub: 'Python and TypeScript engineer with 9 years in IT. I build RAG systems, LLM pipelines and back-ends. Most often as a contractor embedded in your team, long-term and remote. Fixed-scope projects too.',
+    cta1: 'Book a call',
     cta2: 'See case studies',
     availability: 'Available from [month year]',
     code: {
@@ -160,7 +160,19 @@ export const en: Dictionary = {
   },
   process: {
     eyebrow: 'How I work',
-    title: 'Four steps, no surprises',
+    title: 'Two ways to work together',
+    modes: [
+      {
+        title: 'Contractor in your team',
+        badge: 'preferred',
+        desc: 'A member of your team on your backlog, with your processes and tools. Long-term, 3+ months, full-time or part-time, remote. Monthly invoicing through my company. This is how I work today.',
+      },
+      {
+        title: 'Fixed-scope project',
+        desc: 'Fixed scope from audit to handover – a new system, a modernisation, a website. Four steps below, no surprises.',
+      },
+    ],
+    stepsTitle: 'A fixed-scope project in four steps',
     steps: [
       { no: '1', title: 'Discovery call', desc: 'A free 30 minutes. Goals, context, constraints.' },
       {
@@ -210,6 +222,14 @@ export const en: Dictionary = {
         desc: 'Image swap instead of :latest, rollback digest, migrations on dev first.',
       },
       {
+        title: 'I fit into an existing team',
+        desc: 'Unfamiliar codebase, code review, stand-ups, Scrum – I contribute from the first week, not just read.',
+      },
+      {
+        title: 'Web from design to deployment',
+        desc: 'A marketing site or a web app with sign-in and an API – fast, accessible, with tests, CI and hosting. This site is the sample.',
+      },
+      {
         title: 'Clear for stakeholders',
         desc: 'I explain a technical pipeline in plain terms – years as a Scrum Master.',
       },
@@ -220,14 +240,15 @@ export const en: Dictionary = {
     ],
   },
   contact: {
-    title: 'Have an idea?\nLet us build it.',
-    sub: 'Send me a few lines about your project. I reply within 24 hours with a proposed next step.',
+    title: 'Need an extra engineer\nor someone for a project?',
+    sub: 'Send me a few lines about your team or project. I reply within 24 hours with a proposed next step.',
     emailLabel: 'Or email me directly',
     form: {
       name: 'Name',
       email: 'Email',
       type: 'Project type',
       options: {
+        team: 'Team augmentation / contractor',
         ai: 'AI agents / RAG / LLM',
         backend: 'Back-end, API or data pipeline',
         web: 'Website or web application',
@@ -235,7 +256,7 @@ export const en: Dictionary = {
         cv: 'CV request',
       },
       message: 'Message',
-      messagePlaceholder: 'A few lines about the project, goals and timeline.',
+      messagePlaceholder: 'A few lines about the team or project, goals and timeline.',
       cvPlaceholder: 'Please send me your CV. Context: …',
       submit: 'Send message',
       sending: 'Sending…',

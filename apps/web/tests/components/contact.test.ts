@@ -25,10 +25,10 @@ describe('Contact', () => {
     expect(html).toMatch(/<input[^>]*name="lang"[^>]*value="sk"/);
   });
 
-  it('offers the five project types in order and links the consent note to the privacy page', async () => {
+  it('offers the six project types in order, team first and links the consent note to the privacy page', async () => {
     const html = await renderToHtml(Contact, { locale: 'sk' });
     const values = [...html.matchAll(/<option value="([a-z]+)"/g)].map((m) => m[1]);
-    expect(values).toEqual(['ai', 'backend', 'web', 'audit', 'cv']);
+    expect(values).toEqual(['team', 'ai', 'backend', 'web', 'audit', 'cv']);
     expect(html).toContain('href="/ochrana-osobnych-udajov/"');
     expect(html).toContain('data-sitekey="1x00000000000000000000AA"');
     // Widget stays invisible unless Cloudflare needs an interactive check.

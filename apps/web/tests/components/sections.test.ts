@@ -84,9 +84,27 @@ describe('Process and Strengths', () => {
     expect(count(html, /<li/g)).toBe(4);
     for (const n of ['1', '2', '3', '4']) expect(html).toMatch(new RegExp(`>\\s*${n}\\s*</span>`));
   });
-  it('renders eight strengths', async () => {
+  it('renders two collaboration modes above the steps, contractor marked as preferred', async () => {
+    const html = await renderToHtml(Process, { locale: 'sk' });
+    expect(html).toContain('Kontraktor v tíme');
+    expect(html).toContain('Projekt na kľúč');
+    expect(html.indexOf('Kontraktor v tíme')).toBeLessThan(html.indexOf('Úvodný rozhovor'));
+    expect(html).toMatch(/preferujem/);
+    const en = await renderToHtml(Process, { locale: 'en' });
+    expect(en).toContain('Contractor in your team');
+    expect(en).toContain('Fixed-scope project');
+  });
+  it('renders ten strengths including web delivery and team fit', async () => {
     const html = await renderToHtml(Strengths, { locale: 'sk' });
-    expect(count(html, /<li/g)).toBe(8);
+    expect(count(html, /<li/g)).toBe(10);
     expect(html).toContain('Produkčná opatrnosť');
+    expect(html).toContain('Web od návrhu po nasadenie');
+    expect(html).toContain('Zapadnem do existujúceho tímu');
+  });
+  it('renders the web and team strengths in English', async () => {
+    const html = await renderToHtml(Strengths, { locale: 'en' });
+    expect(count(html, /<li/g)).toBe(10);
+    expect(html).toContain('Web from design to deployment');
+    expect(html).toContain('I fit into an existing team');
   });
 });

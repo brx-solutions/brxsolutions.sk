@@ -38,6 +38,7 @@ describe('contactSchema', () => {
   });
   it('accepts the web project type', () => {
     expect(contactSchema.safeParse({ ...valid, type: 'web' }).success).toBe(true);
+    expect(contactSchema.safeParse({ ...valid, type: 'team' }).success).toBe(true);
   });
   it('rejects an unknown project type and an invalid email', () => {
     expect(contactSchema.safeParse({ ...valid, type: 'other' }).success).toBe(false);

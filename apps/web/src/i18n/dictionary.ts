@@ -1,5 +1,5 @@
 export type IconName = 'api' | 'data' | 'legacy' | 'web' | 'bot' | 'invoice' | 'home';
-export type ProjectType = 'ai' | 'backend' | 'web' | 'audit' | 'cv';
+export type ProjectType = 'team' | 'ai' | 'backend' | 'web' | 'audit' | 'cv';
 
 export interface Dictionary {
   meta: { title: string; description: string };
@@ -43,7 +43,13 @@ export interface Dictionary {
   experience: { title: string; sub: string; cta: string };
   projects: { title: string; sub: string; more: string; less: string; nda: string };
   own: { eyebrow: string; title: string; sub: string; more: string; less: string };
-  process: { eyebrow: string; title: string; steps: { no: string; title: string; desc: string }[] };
+  process: {
+    eyebrow: string;
+    title: string;
+    modes: { title: string; desc: string; badge?: string }[];
+    stepsTitle: string;
+    steps: { no: string; title: string; desc: string }[];
+  };
   strengths: {
     eyebrow: string;
     title: string;

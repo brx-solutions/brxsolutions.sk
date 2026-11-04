@@ -30,6 +30,12 @@ describe('i18n', () => {
     }
   });
 
+  it('hero availability carries a real date in both languages, no bracket placeholder', () => {
+    expect(sk.hero.availability).toBe('Voľná kapacita od 12/2026');
+    expect(en.hero.availability).toBe('Available from 12/2026');
+    for (const d of [sk, en]) expect(JSON.stringify(d)).not.toMatch(/\[[a-z ]+\]/);
+  });
+
   it('stack groups carry no hand-written tool count', () => {
     for (const d of [sk, en]) for (const g of d.stack.groups) expect(g).not.toHaveProperty('count');
     expect(sk.stack.countLabel(8)).toBe('8 nástrojov');

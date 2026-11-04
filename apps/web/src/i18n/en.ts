@@ -24,7 +24,7 @@ export const en: Dictionary = {
     sub: 'Python and TypeScript engineer with 9 years in IT. I build RAG systems, LLM pipelines and back-ends. Most often as a contractor embedded in your team, long-term and remote. Fixed-scope projects too.',
     cta1: 'Book a call',
     cta2: 'See case studies',
-    availability: 'Available from [month year]',
+    availability: 'Available from 12/2026',
     code: {
       focus: ['backend', 'GenAI / RAG', 'data'],
       stack: ['Python', 'TypeScript', 'GCP'],

@@ -65,6 +65,18 @@ describe('Projects', () => {
     expect(html).toContain('odozva najpomalšieho RAG dotazu');
     expect(html).toContain('podliehajú NDA');
   });
+  it('shows a "what I took away" block in every case study detail', async () => {
+    const html = await renderToHtml(Projects, { locale: 'sk' });
+    expect(count(html, /Čo som si odniesol/g)).toBe(4);
+    expect(html).toContain('rollback ako prvú funkciu');
+    const en = await renderToHtml(Projects, { locale: 'en' });
+    expect(count(en, /What I took away/g)).toBe(4);
+  });
+  it('featured service leads with measurable LLM systems', async () => {
+    const html = await renderToHtml(Services, { locale: 'sk' });
+    expect(html).toContain('Produkčné LLM systémy, ktoré sa dajú merať');
+    expect(html).toContain('Evals · tracing');
+  });
 });
 
 describe('Own', () => {

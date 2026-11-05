@@ -41,7 +41,7 @@ export interface Dictionary {
     groups: { name: string; bar: string; items: string[] }[];
   };
   experience: { title: string; sub: string; cta: string };
-  projects: { title: string; sub: string; more: string; less: string; nda: string };
+  projects: { title: string; sub: string; more: string; less: string; lesson: string; nda: string };
   own: { eyebrow: string; title: string; sub: string; more: string; less: string };
   process: {
     eyebrow: string;

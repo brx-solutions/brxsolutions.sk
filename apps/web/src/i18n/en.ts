@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: 'BRX Solutions – back-end & AI engineer, Žilina',
     description:
-      'Python and TypeScript engineer with 9 years in IT. RAG systems, LLM pipelines and back-ends – as a contractor in your team or on a project from design to operations.',
+      'Python and TypeScript engineer with 9 years in IT. Production RAG and LLM systems with evals and observability, back-ends and Palantir Foundry – as a contractor in your team or on a project.',
   },
   nav: {
     services: 'Services',
@@ -20,13 +20,13 @@ export const en: Dictionary = {
   },
   hero: {
     eyebrow: 'back-end & AI engineer · Žilina · remote',
-    title: 'Back-end and AI\nthat run\nin production.',
-    sub: 'Python and TypeScript engineer with 9 years in IT. I build RAG systems, LLM pipelines and back-ends. Most often as a contractor embedded in your team, long-term and remote. Fixed-scope projects too.',
+    title: 'AI & back-end\nthat run\nand can be measured.',
+    sub: 'Python and TypeScript engineer with 9 years in IT. I build RAG systems, LLM pipelines and back-ends – with evals, tracing and a number behind every change. Most often as a contractor embedded in your team, long-term and remote. Fixed-scope projects too.',
     cta1: 'Book a call',
     cta2: 'See case studies',
     availability: 'Available from 12/2026',
     code: {
-      focus: ['backend', 'GenAI / RAG', 'data'],
+      focus: ['GenAI / RAG', 'evals', 'backend'],
       stack: ['Python', 'TypeScript', 'GCP'],
       remote: true,
     },
@@ -42,11 +42,11 @@ export const en: Dictionary = {
     sub: 'From auditing an existing system to production deployment. No agency overhead.',
     featuredBadge: 'core specialisation',
     featured: {
-      title: 'AI agents, RAG & LLM systems',
-      desc: 'Agents that do real work, not demos: connected to your data (RAG, hybrid search), with tools (MCP, your APIs), a schedule and a channel to people (Telegram, Slack, web).',
+      title: 'Production LLM systems you can measure',
+      desc: 'RAG, agents and LLM pipelines connected to your data (pgvector, hybrid search), with tools (MCP, your APIs) and a channel to people. Every change ships with an eval suite, tracing and a number: latency, cost, output quality.',
       quote:
         'The emphasis is on what the model must not do: calculations and rules live in code, the model only where language is needed.',
-      tags: ['RAG · pgvector', 'Claude Agent SDK · MCP', 'Gemini · Vertex AI', 'Prompt tests'],
+      tags: ['RAG · pgvector', 'Evals · tracing', 'Claude Agent SDK · MCP', 'Gemini · Vertex AI'],
     },
     items: [
       {
@@ -146,9 +146,10 @@ export const en: Dictionary = {
   },
   projects: {
     title: 'Problems I have solved',
-    sub: 'Production systems I worked on. The number tells the outcome; the detail is one click away.',
+    sub: 'Production systems I worked on. The number tells the outcome; how I solved it and what I took away is one click away.',
     more: 'How I solved it',
     less: 'Hide detail',
+    lesson: 'What I took away',
     nda: 'Internal details and code are under NDA – happy to explain context and approach in person.',
   },
   own: {

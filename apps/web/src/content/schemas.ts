@@ -19,6 +19,7 @@ export const projectSchema = z.object({
   problem: z.string(),
   solution: z.string(),
   result: z.string(),
+  lesson: z.string(),
   tags: z.array(z.string()),
   order: z.number().int().positive(),
 });

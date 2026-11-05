@@ -4,7 +4,7 @@ export const sk: Dictionary = {
   meta: {
     title: 'BRX Solutions – back-end a AI inžinier, Žilina',
     description:
-      'Python a TypeScript inžinier s 9 rokmi v IT. RAG systémy, LLM pipeline a back-end – ako kontraktor vo vašom tíme alebo na projekt od návrhu po prevádzku.',
+      'Python a TypeScript inžinier s 9 rokmi v IT. Produkčné RAG a LLM systémy s evaluáciou a observability, back-end a Palantir Foundry – ako kontraktor vo vašom tíme alebo na projekt.',
   },
   nav: {
     services: 'Služby',
@@ -20,13 +20,13 @@ export const sk: Dictionary = {
   },
   hero: {
     eyebrow: 'back-end & AI engineer · Žilina · remote',
-    title: 'Back-end a AI,\nktoré bežia\nv produkcii.',
-    sub: 'Python a TypeScript inžinier s 9 rokmi v IT. Staviam RAG systémy, LLM pipeline a back-end. Najčastejšie ako kontraktor priamo vo vašom tíme, dlhodobo a remote. Projekt na kľúč tiež.',
+    title: 'AI a back-end,\nktoré bežia\na dajú sa merať.',
+    sub: 'Python a TypeScript inžinier s 9 rokmi v IT. Staviam RAG systémy, LLM pipeline a back-end – s evaluáciou, tracingom a číslom za každou zmenou. Najčastejšie ako kontraktor priamo vo vašom tíme, dlhodobo a remote. Projekt na kľúč tiež.',
     cta1: 'Dohodnúť rozhovor',
     cta2: 'Pozrieť case studies',
     availability: 'Voľná kapacita od 12/2026',
     code: {
-      focus: ['backend', 'GenAI / RAG', 'data'],
+      focus: ['GenAI / RAG', 'evals', 'backend'],
       stack: ['Python', 'TypeScript', 'GCP'],
       remote: true,
     },
@@ -42,11 +42,11 @@ export const sk: Dictionary = {
     sub: 'Od auditu existujúceho systému po produkčné nasadenie. Bez agentúrnej režie.',
     featuredBadge: 'hlavná špecializácia',
     featured: {
-      title: 'AI agenti, RAG a LLM systémy',
-      desc: 'Agenti, ktorí robia skutočnú prácu, nie demo: pripojené k vašim dátam (RAG, hybridné vyhľadávanie), s nástrojmi (MCP, vlastné API), plánom a kanálom k ľuďom (Telegram, Slack, web).',
+      title: 'Produkčné LLM systémy, ktoré sa dajú merať',
+      desc: 'RAG, agenti a LLM pipeline pripojené k vašim dátam (pgvector, hybridné vyhľadávanie), s nástrojmi (MCP, vlastné API) a kanálom k ľuďom. Každá zmena má eval suite, tracing a číslo: latencia, cena, kvalita výstupu.',
       quote:
         'Dôraz na to, čo model nesmie robiť: výpočty a pravidlá v kóde, model len tam, kde je jazyk.',
-      tags: ['RAG · pgvector', 'Claude Agent SDK · MCP', 'Gemini · Vertex AI', 'Prompt testy'],
+      tags: ['RAG · pgvector', 'Evals · tracing', 'Claude Agent SDK · MCP', 'Gemini · Vertex AI'],
     },
     items: [
       {
@@ -146,9 +146,10 @@ export const sk: Dictionary = {
   },
   projects: {
     title: 'Čo som riešil',
-    sub: 'Produkčné systémy, na ktorých som pracoval. Číslo hovorí o výsledku, detail je na kliknutie.',
+    sub: 'Produkčné systémy, na ktorých som pracoval. Číslo hovorí o výsledku; ako som to riešil a čo som si odniesol, je na kliknutie.',
     more: 'Ako som to riešil',
     less: 'Skryť detail',
+    lesson: 'Čo som si odniesol',
     nda: 'Interné detaily a kód podliehajú NDA – kontext a prístup rád vysvetlím osobne.',
   },
   own: {

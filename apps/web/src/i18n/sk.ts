@@ -20,7 +20,7 @@ export const sk: Dictionary = {
   },
   hero: {
     eyebrow: 'back-end & AI engineer · Žilina · remote',
-    title: 'AI a back-end,\nktoré bežia\na dajú sa merať.',
+    title: 'AI a back-end\ndo produkcie.\nMerateľne.',
     sub: 'Python a TypeScript inžinier s 9 rokmi v IT. Staviam RAG systémy, LLM pipeline a back-end – s evaluáciou, tracingom a číslom za každou zmenou. Najčastejšie ako kontraktor priamo vo vašom tíme, dlhodobo a remote. Projekt na kľúč tiež.',
     cta1: 'Dohodnúť rozhovor',
     cta2: 'Pozrieť case studies',

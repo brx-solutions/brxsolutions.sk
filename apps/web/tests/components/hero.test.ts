@@ -7,10 +7,12 @@ describe('Hero', () => {
   it('renders the title with preserved line breaks and both CTAs', async () => {
     const html = await renderToHtml(Hero, { locale: 'en' });
     expect(html).toMatch(
-      /<h1[^>]*whitespace-pre-line[^>]*>AI &amp; back-end\nthat run\nand can be measured\.<\/h1>/,
+      /<h1[^>]*whitespace-pre-line[^>]*>AI &amp; back-end\nin production\.\nMeasurably\.<\/h1>/,
     );
     expect(html).toContain('href="#kontakt"');
     expect(html).toContain('href="#projekty"');
+    const sk = await renderToHtml(Hero, { locale: 'sk' });
+    expect(sk).toMatch(/<h1[^>]*>AI a back-end\ndo produkcie\.\nMerateľne\.<\/h1>/);
   });
 
   it('fills the code window from company config and dictionary', async () => {

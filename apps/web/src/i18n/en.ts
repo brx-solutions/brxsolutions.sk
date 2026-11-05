@@ -20,7 +20,7 @@ export const en: Dictionary = {
   },
   hero: {
     eyebrow: 'back-end & AI engineer · Žilina · remote',
-    title: 'AI & back-end\nthat run\nand can be measured.',
+    title: 'AI & back-end\nin production.\nMeasurably.',
     sub: 'Python and TypeScript engineer with 9 years in IT. I build RAG systems, LLM pipelines and back-ends – with evals, tracing and a number behind every change. Most often as a contractor embedded in your team, long-term and remote. Fixed-scope projects too.',
     cta1: 'Book a call',
     cta2: 'See case studies',

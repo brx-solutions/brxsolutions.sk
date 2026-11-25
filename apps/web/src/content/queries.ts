@@ -11,7 +11,7 @@ export async function localized<C extends Ordered>(
   return entries.sort((a, b) => a.data.order - b.data.order);
 }
 
-/** Entry id without its locale folder: 'sk/blick' -> 'blick'. */
+/** Entry id without its locale folder: 'sk/rag' -> 'rag'. */
 export function slugOf(id: string): string {
   return id.replace(/^[a-z]{2}\//, '');
 }

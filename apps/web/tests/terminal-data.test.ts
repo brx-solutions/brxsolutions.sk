@@ -12,7 +12,7 @@ describe('terminal scene data', () => {
       expect(d.services).toHaveLength(1 + t(locale).services.items.length);
       expect(d.stack.map((g) => g.name)).toEqual(t(locale).stack.groups.map((g) => g.name));
       expect(d.commits).toHaveLength(5);
-      expect(d.tests.map((x) => x.slug)).toEqual(['blick', 'proteus', 'football', 'rpd']);
+      expect(d.tests.map((x) => x.slug)).toEqual(['rag', 'migration', 'football', 'rpd']);
       expect(d.tests[0]!.detail).toHaveLength(4);
       expect(d.containers.map((x) => x.slug)).toEqual(['agents', 'acc', 'ha']);
       expect(d.jobs.map((j) => j.id)).toEqual(['brief', 'design', 'build', 'deploy']);

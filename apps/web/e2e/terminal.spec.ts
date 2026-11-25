@@ -30,7 +30,7 @@ test('scrolling to case studies switches the window to pytest', async ({ page })
   await page.goto('/');
   await scrollInto(page, 'projects');
   await expect(file(page)).toContainText('pytest');
-  await expect(body(page)).toContainText('cases/test_blick');
+  await expect(body(page)).toContainText('cases/test_rag');
   await expect(body(page)).toContainText('Záchrana RAG');
   await expect(page.locator('[data-term-count]')).toHaveText('6 / 10');
 });
@@ -108,11 +108,11 @@ test('maximised caption arrows move between sections', async ({ page }) => {
 test('opening a case study detail shows its content file', async ({ page }) => {
   await page.goto('/');
   await scrollInto(page, 'projects');
-  await page.locator('[data-scene-item="blick"] summary').click();
-  await expect(file(page)).toHaveText('cases/blick.md');
+  await page.locator('[data-scene-item="rag"] summary').click();
+  await expect(file(page)).toHaveText('cases/rag.md');
   await expect(body(page)).toContainText('Ako som to riešil');
   await expect(body(page)).toContainText('Migrácia dokončená pred odstavením SDK');
-  await page.locator('[data-scene-item="blick"] summary').click();
+  await page.locator('[data-scene-item="rag"] summary').click();
   await expect(file(page)).toContainText('pytest');
 });
 

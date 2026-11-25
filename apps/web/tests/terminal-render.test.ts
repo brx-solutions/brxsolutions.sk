@@ -76,19 +76,19 @@ describe('renderScene', () => {
   it('projects scene names one passed test per project with the content metric', () => {
     const r = renderScene(data, 'projects', full);
     expect(count(r.html, /PASSED/g)).toBe(4);
-    expect(text(r.html)).toContain('cases/test_blick');
+    expect(text(r.html)).toContain('cases/test_rag');
     expect(text(r.html)).toContain(data.tests[0]!.metric);
     expect(r.html).not.toContain('term-cur');
   });
 
   it('project detail shows only content texts, line by line', () => {
-    const two = renderScene(data, 'projects', { ...full, detail: { slug: 'blick', lines: 2 } });
-    expect(two.file).toBe('cases/blick.md');
+    const two = renderScene(data, 'projects', { ...full, detail: { slug: 'rag', lines: 2 } });
+    expect(two.file).toBe('cases/rag.md');
     expect(two.revealed).toBe(2);
     expect(two.html).toContain('term-cur');
     const all = renderScene(data, 'projects', {
       ...full,
-      detail: { slug: 'blick', lines: Infinity },
+      detail: { slug: 'rag', lines: Infinity },
     });
     for (const part of data.tests[0]!.detail) {
       expect(text(all.html)).toContain(part.heading);
@@ -98,7 +98,7 @@ describe('renderScene', () => {
   });
 
   it('ignores a detail that belongs to another scene', () => {
-    const r = renderScene(data, 'own', { ...full, detail: { slug: 'blick', lines: 3 } });
+    const r = renderScene(data, 'own', { ...full, detail: { slug: 'rag', lines: 3 } });
     expect(r.file).toContain('docker ps');
   });
 

@@ -75,7 +75,7 @@ describe('Home scene markers', () => {
 
   it('project and own cards expose their slug for the detail view', async () => {
     const html = await renderToHtml(Home, { locale: 'en' });
-    for (const slug of ['blick', 'proteus', 'football', 'rpd', 'agents', 'acc', 'ha'])
+    for (const slug of ['rag', 'migration', 'football', 'rpd', 'agents', 'acc', 'ha'])
       expect(html, slug).toContain(`data-scene-item="${slug}"`);
   });
 

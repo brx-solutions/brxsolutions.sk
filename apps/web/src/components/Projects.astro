@@ -2,7 +2,7 @@
 import Section from './Section.astro';
 import Tag from './Tag.astro';
 import Details from './Details.astro';
-import { localized } from '../content/queries';
+import { localized, slugOf } from '../content/queries';
 import { t, anchors, type Locale } from '../i18n';
 
 interface Props {
@@ -20,11 +20,15 @@ const projects = await localized('projects', locale);
   title={d.projects.title}
   sub={d.projects.sub}
   tone="surface"
+  scene="projects"
 >
-  <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
+  <div class="grid grid-cols-1 gap-4 @5xl:grid-cols-2">
     {
-      projects.map(({ data: p }) => (
-        <article class="flex flex-col gap-[18px] rounded-card border border-white/10 bg-bg p-6 md:p-8">
+      projects.map(({ id, data: p }) => (
+        <article
+          data-scene-item={slugOf(id)}
+          class="flex flex-col gap-[18px] rounded-card border border-white/10 bg-bg p-6 @3xl:p-8"
+        >
           <div class="flex flex-wrap items-center justify-between gap-3">
             <span class="font-mono text-xs text-muted">{p.context}</span>
             <span class="font-mono text-xs text-muted-2">{p.year}</span>

@@ -11,6 +11,11 @@ export async function localized<C extends Ordered>(
   return entries.sort((a, b) => a.data.order - b.data.order);
 }
 
+/** Entry id without its locale folder: 'sk/blick' -> 'blick'. */
+export function slugOf(id: string): string {
+  return id.replace(/^[a-z]{2}\//, '');
+}
+
 export async function legal(locale: Locale): Promise<CollectionEntry<'legal'>> {
   const entry = await getEntry('legal', `${locale}/privacy`);
   if (!entry) throw new Error(`Missing legal/${locale}/privacy.md`);

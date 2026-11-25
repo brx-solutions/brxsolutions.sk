@@ -12,9 +12,9 @@ const str = (v: string) => `"${v}"`;
 const list = (xs: string[]) => xs.map(str);
 ---
 
-<section id="top" class="hero relative overflow-hidden border-b border-line">
+<section id="top" data-scene="profile" class="hero relative overflow-hidden border-b border-line">
   <div
-    class="mx-auto flex max-w-page flex-wrap items-center gap-16 px-5 pt-20 pb-16 md:px-8 md:pt-[120px] md:pb-[104px]"
+    class="mx-auto flex max-w-page flex-wrap items-center gap-16 px-5 pt-20 pb-16 @3xl:px-8 @3xl:pt-[120px] @3xl:pb-[104px]"
   >
     <div class="flex min-w-0 flex-[1_1_540px] flex-col gap-[30px]">
       <p class="m-0 inline-flex items-center gap-2.5 font-mono text-[13px] text-accent">
@@ -48,7 +48,7 @@ const list = (xs: string[]) => xs.map(str);
       </div>
     </div>
 
-    <div class="flex min-w-0 flex-[1_1_400px] justify-center">
+    <div data-hero-code class="flex min-w-0 flex-[1_1_400px] justify-center">
       <div
         class="w-full max-w-[500px] overflow-hidden rounded-2xl border border-line-2 bg-surface shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
       >

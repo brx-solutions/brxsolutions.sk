@@ -1,3 +1,5 @@
+import type { TerminalLabels } from '../terminal/types';
+
 export type IconName = 'api' | 'data' | 'legacy' | 'web' | 'bot' | 'invoice' | 'home';
 export type ProjectType = 'team' | 'ai' | 'backend' | 'web' | 'audit' | 'cv';
 
@@ -76,6 +78,7 @@ export interface Dictionary {
       noteLink: string;
     };
   };
+  terminal: TerminalLabels;
   legal: { title: string };
   sent: { title: string; body: string; back: string };
   failed: { title: string; body: string; back: string };

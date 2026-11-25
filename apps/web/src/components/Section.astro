@@ -8,16 +8,29 @@ interface Props {
   subMax?: string;
   tone?: 'bg' | 'surface';
   label?: string;
+  /** Terminal scene this section drives. */
+  scene?: string;
 }
-const { id, no, eyebrow, title, sub, subMax = 'max-w-[400px]', tone = 'bg', label } = Astro.props;
+const {
+  id,
+  no,
+  eyebrow,
+  title,
+  sub,
+  subMax = 'max-w-[400px]',
+  tone = 'bg',
+  label,
+  scene,
+} = Astro.props;
 ---
 
 <section
   id={id}
   class:list={['border-b border-line', tone === 'surface' ? 'bg-surface' : 'bg-bg']}
   aria-label={label}
+  data-scene={scene}
 >
-  <div class="mx-auto flex max-w-page flex-col gap-11 px-5 py-16 md:px-8 md:py-[104px]">
+  <div class="mx-auto flex max-w-page flex-col gap-11 px-5 py-16 @3xl:px-8 @3xl:py-[104px]">
     <div class="flex flex-wrap items-end justify-between gap-6">
       <div class="flex max-w-[620px] flex-col gap-3.5">
         <p class="m-0 font-mono text-[13px] text-accent">{no} / {eyebrow}</p>

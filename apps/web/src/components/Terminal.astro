@@ -1,0 +1,62 @@
+---
+import { buildTerminalData } from '../terminal/data';
+import { renderScene } from '../terminal/render';
+import { SCENE_IDS } from '../terminal/types';
+import type { Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const data = await buildTerminalData(locale);
+const l = data.labels;
+// Server-rendered empty editor; the script types the file out once it runs.
+const first = renderScene(data, 'profile', {
+  progress: 0,
+  typedChars: 0,
+  openFold: null,
+  form: { name: '', email: '', type: '', message: '' },
+  sent: false,
+  detail: null,
+});
+---
+
+<aside
+  class="term-window"
+  data-term-window
+  data-terminal={JSON.stringify(data)}
+  aria-label={l.aside}
+>
+  <div class="term-bar">
+    <span class="term-dots">
+      <button type="button" class="term-dot term-dot-close" data-term-close aria-label={l.close}
+        ><i></i></button
+      >
+      <button type="button" class="term-dot term-dot-min" data-term-min aria-label={l.minimize}
+        ><i></i></button
+      >
+      <button type="button" class="term-dot term-dot-max" data-term-max aria-label={l.maximize}
+        ><i></i></button
+      >
+    </span>
+    <span class="term-tab"><i aria-hidden="true"></i><span data-term-file>{first.file}</span></span>
+    <span class="term-count" data-term-count>1 / {SCENE_IDS.length}</span>
+  </div>
+  <div class="term-body" data-term-body tabindex="0" set:html={first.html} />
+  <div class="term-cap" data-term-cap>
+    <button type="button" data-term-prev aria-label={l.prev}>‹</button>
+    <div class="term-cap-txt"><b data-term-title></b><span data-term-sub></span></div>
+    <button type="button" class="term-cap-acc" data-term-detail hidden>{l.detail}</button>
+    <button type="button" data-term-next aria-label={l.next}>›</button>
+  </div>
+  <div class="term-status">
+    <span aria-hidden="true">⎇ main</span><span data-term-stat>{first.stat}</span>
+  </div>
+</aside>
+<button type="button" class="term-dock" data-term-dock>
+  <span class="term-dock-ic" aria-hidden="true">&gt;_</span>
+  <span class="sr-only">{l.dock}:</span>
+  <span data-term-dock-label>{first.file}</span>
+</button>
+
+<script src="../scripts/terminal.ts"></script>

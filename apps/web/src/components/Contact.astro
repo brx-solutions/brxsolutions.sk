@@ -14,8 +14,10 @@ const social =
   'inline-flex h-11 w-11 items-center justify-center rounded-[10px] border border-white/16 bg-bg';
 ---
 
-<section id={anchors.contact} class="contact">
-  <div class="mx-auto flex max-w-page flex-wrap gap-10 px-5 py-16 md:gap-16 md:px-8 md:py-[104px]">
+<section id={anchors.contact} data-scene="contact" class="contact">
+  <div
+    class="mx-auto flex max-w-page flex-wrap gap-10 px-5 py-16 @3xl:gap-16 @3xl:px-8 @3xl:py-[104px]"
+  >
     <div class="flex min-w-0 flex-[1_1_420px] flex-col gap-6">
       <p class="m-0 font-mono text-[13px] text-accent">08 / {d.nav.contact}</p>
       <h2

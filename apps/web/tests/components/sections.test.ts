@@ -61,8 +61,9 @@ describe('Projects', () => {
     expect(count(html, /<summary/g)).toBe(4);
     expect(html).toContain('Ako som to riešil');
     expect(html).toContain('Skryť detail');
-    expect(html).toContain('3,5 min → 20 s');
-    expect(html).toContain('odozva najpomalšieho RAG dotazu');
+    expect(html).toContain('Záchrana RAG');
+    expect(html).not.toContain('3,5 min → 20 s');
+    expect(html).toContain('výkon, migrácia SDK a prepis do TypeScriptu');
     expect(html).toContain('podliehajú NDA');
   });
   it('shows a "what I took away" block in every case study detail', async () => {

@@ -4,7 +4,7 @@ import Section from './Section.astro';
 import Icon from './Icon.astro';
 import Tag from './Tag.astro';
 import Details from './Details.astro';
-import { localized } from '../content/queries';
+import { localized, slugOf } from '../content/queries';
 import { t, anchors, type Locale } from '../i18n';
 
 interface Props {
@@ -27,11 +27,15 @@ const items = await Promise.all(
   title={d.own.title}
   sub={d.own.sub}
   subMax="max-w-[440px]"
+  scene="own"
 >
   <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
     {
-      items.map(({ entry: { data: o }, Content }) => (
-        <article class="flex flex-col gap-4 rounded-card border border-white/10 bg-surface p-7">
+      items.map(({ entry: { id, data: o }, Content }) => (
+        <article
+          data-scene-item={slugOf(id)}
+          class="flex flex-col gap-4 rounded-card border border-white/10 bg-surface p-7"
+        >
           <div class="flex items-center justify-between gap-3">
             <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-surface-2 text-accent-light">
               <Icon name={o.icon} size={22} strokeWidth={1.9} />

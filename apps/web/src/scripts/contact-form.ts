@@ -31,6 +31,8 @@ if (form) {
       });
       if (!res.ok) throw new Error(String(res.status));
       show(form.dataset.success ?? '', true);
+      // Before reset(): the terminal window reads the sent values from the fields.
+      form.dispatchEvent(new CustomEvent('contact:sent'));
       form.reset();
       const message = form.querySelector<HTMLTextAreaElement>('textarea[name=message]');
       if (message) message.placeholder = form.dataset.msgPlaceholder ?? '';

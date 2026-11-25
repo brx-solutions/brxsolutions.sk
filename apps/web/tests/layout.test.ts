@@ -25,3 +25,11 @@ describe('Base layout', () => {
     expect(html).not.toContain('data-website-id');
   });
 });
+
+describe('terminal boot script', () => {
+  it('is loaded as an external blocking script only when the terminal is enabled', async () => {
+    expect(await renderToHtml(Base, props)).not.toContain('terminal-boot.js');
+    const html = await renderToHtml(Base, { ...props, terminal: true });
+    expect(html).toMatch(/<script src="\/terminal-boot\.js"><\/script>/);
+  });
+});

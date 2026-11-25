@@ -11,6 +11,7 @@ import Process from './Process.astro';
 import Strengths from './Strengths.astro';
 import Contact from './Contact.astro';
 import Footer from './Footer.astro';
+import Terminal from './Terminal.astro';
 import type { Locale } from '../i18n';
 
 interface Props {
@@ -21,17 +22,20 @@ const { locale } = Astro.props;
 
 <div class="flex min-h-screen flex-col">
   <Header locale={locale} />
-  <main>
-    <Hero locale={locale} />
-    <Stats locale={locale} />
-    <Services locale={locale} />
-    <Stack locale={locale} />
-    <Experience locale={locale} />
-    <Projects locale={locale} />
-    <Own locale={locale} />
-    <Process locale={locale} />
-    <Strengths locale={locale} />
-    <Contact locale={locale} />
-  </main>
+  <div data-term-shell>
+    <main data-term-content class="@container">
+      <Hero locale={locale} />
+      <Stats locale={locale} />
+      <Services locale={locale} />
+      <Stack locale={locale} />
+      <Experience locale={locale} />
+      <Projects locale={locale} />
+      <Own locale={locale} />
+      <Process locale={locale} />
+      <Strengths locale={locale} />
+      <Contact locale={locale} />
+    </main>
+    <Terminal locale={locale} />
+  </div>
   <Footer locale={locale} />
 </div>

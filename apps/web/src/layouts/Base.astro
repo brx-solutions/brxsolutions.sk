@@ -8,9 +8,11 @@ interface Props {
   title: string;
   description: string;
   alternates: Record<Locale, string>;
+  /** Home pages only: restores the terminal window state before first paint. */
+  terminal?: boolean;
 }
 
-const { locale, title, description, alternates } = Astro.props;
+const { locale, title, description, alternates, terminal = false } = Astro.props;
 const canonical = company.siteUrl + alternates[locale];
 const umamiSrc = import.meta.env.PUBLIC_UMAMI_SRC;
 const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
@@ -49,6 +51,7 @@ const jsonLd = JSON.stringify({
     <meta name="theme-color" content="#0A0E14" />
     <script type="application/ld+json" is:inline set:html={jsonLd} />
     {umamiSrc && umamiId && <script defer src={umamiSrc} data-website-id={umamiId} is:inline />}
+    {terminal && <script is:inline src="/terminal-boot.js" />}
     <slot name="head" />
   </head>
   <body>
